@@ -6,5 +6,13 @@ The American shad (_Alosa sapidissima_) is an anadromous fish distributed throug
 _Funding_  
 This genome sequencing project is courtesy of an award from the [The Sequencing and Genomic Technologies Shared Resource](https://genome.duke.edu) at the Duke Center for Genomic and Computational Biology (Duke University).  
 
+## Data
+All project and sample information are publicly available and can be accessed through the NCBI BioProject database (accession [PRJNA487080](https://www.ncbi.nlm.nih.gov/bioproject/487080)).  All raw sequencing data has been deposited into NCBI and will be publicly available on 2019-09-15.  Please check back for updates on an earlier release.
+- NCBI BioSample accession [SAMN09873042](https://www.ncbi.nlm.nih.gov/biosample/SAMN09873042)
+- NCBI Sequence Read Archive (SRA)
+  1.  Short-insert, paired end reads: SRR7973879
+  2.  Long-insert, Mate-pair library (5-7 kb insert size): SRR7973880
+  3.  Long-insert, Mate-pair library (10-12 kb insert size): SRR7973881
+
 ### All code and content herein is licensed under:
 ### [GNU General Public License v3.0](./LICENSE)
