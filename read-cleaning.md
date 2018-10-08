@@ -67,9 +67,25 @@ fastp \
    --thread=8
 ```
 _Parameters Explained:_
-- xxxx
-- xxxx
-- xxxx
+- -i/-I :: input forward and reverse read files, recognizes gzip
+- -o/-O :: output forward and reverse read files, recognizes gzip
+- -n 5 :: if one read's number of N bases is >5, then this read pair is discarded
+- -q 30 :: minimum base quality score to keep
+- -u 30 :: Percent of bases allowed to be less than q in a read
+- --length_required=100 :: minimum read length to keep after trimming
+- --low_complexity_filter :: filter sequences with a low complexity
+- --complexity_threshold=20 :: threshold for sequence complexity filter
+- --cut_by_quality3 :: use a 3' sliding window trimmer, like trimmomatic
+- --cut_by_quality5 :: use a 5' sliding window trimmer, like trimmomatic
+- --cut_window_size=4 :: window size for the trimming
+- --cut_mean_quality=30 :: mean base score across the window required, or else trim the last base
+- --trim_poly_g :: removes poly G tails for NovaSeq reads
+- --poly_g_min_len=10 :: minimum length for poly G removal
+- --overrepresentation_analysis :: look for overrepresented sequences, like adapters
+- --json=${name}.json :: output file name, JSON format
+- --html=${name}.html :: output file name, HTML format
+- --report_title="$name" :: output report tile
+- --thread=8 :: number of cpus to use
 
 _See the Output HTML Files:_
 - [PE500](./Data/PE500.pdf)
