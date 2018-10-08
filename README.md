@@ -5,3 +5,6 @@ The American shad (_Alosa sapidissima_) is an anadromous fish distributed throug
 
 _Funding_  
 This genome sequencing project is courtesy of an award from the [The Sequencing and Genomic Technologies Shared Resource](https://genome.duke.edu) at the Duke Center for Genomic and Computational Biology (Duke University).  
+
+### All code and content herein is licensed under:
+### [GNU General Public License v2.0](./LICENSE)
