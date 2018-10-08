@@ -77,6 +77,7 @@ _See the Output HTML Files:_
 - [MP10k](./Data/MP10k.pdf)
 
 _Summary of Results After Cleaning:_  
+
 | Name | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
 | --- | --- | --- | --- | --- |
 | PE500 | 239,477,910 | 70.1 G | 97.6% | 92.4% |
