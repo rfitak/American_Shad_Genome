@@ -75,3 +75,11 @@ _See the Output HTML Files:_
 - [PE500](./Data/PE500.pdf)
 - [MP5k](./Data/MP5k.pdf)
 - [MP10k](./Data/MP10k.pdf)
+
+_Summary of Results After Cleaning:_
+| Name | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
+| --- | --- | --- | --- | --- |
+| PE500 | 239,477,910 | 70.1 G | 97.6% | 92.4% |
+| MP5k | 178,871,091 | 53.6 G | 97.1% | 91.2% |
+| MP10k | 167,372,392 | 50.1 G | 97.1% | 91.2.0% |
+| Total | 585,721,393 | 173.8 G | n/a | n/a |
