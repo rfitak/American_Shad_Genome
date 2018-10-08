@@ -23,7 +23,7 @@ Sometimes the code below only shows the code for a single run, and runs may be r
 
 
 ## Step 1:  Read trimming and filtering
-Here the new software [fastp](https://github.com/OpenGene/fastp) v0.19.4 was used. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
+Here the new software [fastp v0.19.4](https://github.com/OpenGene/fastp) was used. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
 Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 
 _Installation:_
@@ -72,6 +72,6 @@ _Parameters Explained:_
 - xxxx
 
 _See the Output HTML Files:_
-- [PE500](./Data/PE500.html)
-- [MP5k](./Data/MP5k.html)
-- [MP10k](./Data/MP10k.html)
+- [PE500](./Data/PE500.pdf)
+- [MP5k](./Data/MP5k.pdf)
+- [MP10k](./Data/MP10k.pdf)
