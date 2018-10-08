@@ -11,6 +11,8 @@ This section will start with the raw sequencing data and perform a series a clea
 5.  Kmer counting and Error-correcting the sequencing reads
     - Program: Undecided (Dsk, Quake, Musket, BFC...)
 
+Sometimes the code below only shows the code for a single run, and runs may be repeated for different files. For reference to the amount of resources required, see the accompanying .sh scripts in the [Data](./Data) folder.
+
 ### Raw Data Summary:
 | Name | Type | Insert Size | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -21,5 +23,46 @@ This section will start with the raw sequencing data and perform a series a clea
 
 
 ## Step 1:  Read trimming and filtering
-Here the new software [fastp](https://github.com/OpenGene/fastp) was used.  It combines a QC (Similar to FastQC) along with various trimming and filtering functions.  The software was originally published as 'xxxx' and the publication can be found here:  
+Here the new software [fastp](https://github.com/OpenGene/fastp) v0.19.4 was used. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
 Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
+
+_Installation:_
+```bash
+# Install fastp using git
+git clone https://github.com/OpenGene/fastp.git
+cd fastp
+make
+```
+
+_Run fastp_
+An example run is shown below, please see the scripts [trimPE500.sh](./Data/trimPE500.sh), [trimMP5k.sh](./Data/trimMP5k.sh), and [trimMP10k.sh](./Data/trimMP10k.sh) for more details on Job information.
+```bash
+# Assign names to each forward and reverse sequence reads file
+fwd="gDNA_S18_L002_R1_001.fastq.gz"
+rev="gDNA_S18_L002_R2_001.fastq.gz"
+name="PE500"
+
+# Run fastp
+fastp \
+   -i ${fwd} \
+   -I ${rev} \
+   -o ${name}_F.trimmed.fq.gz \
+   -O ${name}_R.trimmed.fq.gz \
+   -n 5 \
+   -q 30 \
+   -u 30 \
+   --length_required=100 \
+   --low_complexity_filter \
+   --complexity_threshold=20 \
+   --cut_by_quality3 \
+   --cut_by_quality5 \
+   --cut_window_size=4 \
+   --cut_mean_quality=30 \
+   --trim_poly_g \
+   --poly_g_min_len=10 \
+   --overrepresentation_analysis \
+   --json=${name}.json \
+   --html=${name}.html \
+   --report_title="$name" \
+   --thread=8
+```
