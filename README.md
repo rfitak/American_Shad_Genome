@@ -15,5 +15,6 @@ All project and sample information are publicly available and can be accessed th
   2.  Long-insert, Mate-pair library (5-7 kb insert size): SRR7973880
   3.  Long-insert, Mate-pair library (10-12 kb insert size): SRR7973881
 
+## Licesnse
 ### All code and content herein is licensed under:
 ### [GNU General Public License v3.0](./LICENSE)
