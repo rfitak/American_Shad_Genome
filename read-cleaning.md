@@ -13,7 +13,7 @@ This section will start with the raw sequencing data and perform a series a clea
 
 ### Raw Data Summary:
 | Read Set | Type | Insert Size | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Short Insert | 151 bp; Paired-end | TBD | 313,465,270 | 94,666,511,540 | 88.2% | 81.4% |
 | Long Insert | 151 bp; Mate-pair | 5-7 kb | 226,692,460 | 68,461,122,920 | 93.1% | 85.3% |
 | Long Insert | 151 bp; Mate-pair | 10-12 kb | 223,358,676 | 67,454,320,152 | 92.8% | 85.0% |
