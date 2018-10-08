@@ -66,7 +66,12 @@ fastp \
    --report_title="$name" \
    --thread=8
 ```
-Parameters Explained:
+_Parameters Explained:_
 - xxxx
 - xxxx
 - xxxx
+
+_See the Output HTML Files:_
+- [PE500](./Data/PE500.html)
+- [MP5k](./Data/MP5k.html)
+- [MP10k](./Data/MP10k.html)
