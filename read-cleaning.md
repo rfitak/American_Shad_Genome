@@ -66,3 +66,7 @@ fastp \
    --report_title="$name" \
    --thread=8
 ```
+Parameters Explained:
+- xxxx
+- xxxx
+- xxxx
