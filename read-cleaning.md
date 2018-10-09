@@ -177,3 +177,7 @@ _Summary of Results After Removing Duplicated Pairs:_
 | MP5k | 178,871,091 | 93,007,002 | 27,714,871,797 | 95.7% | 88.2% |
 | MP10k | 167,372,392 | 76,805,039 | 22,869,981,489 | 95.3% | 87.6% |
 | Total | 585,721,393 | xxxxx | xxx | n/a | n/a |
+
+_Note_
+Use the command ```seqtk fqchk -q20 <(cat *.trimmed.fq.gz)``` to get the count of bases >=Q20 for all trimmed sequences, or other combination of files and quality score values.
+
