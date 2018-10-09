@@ -102,16 +102,31 @@ _Summary of Results After Cleaning:_
 | Total | 585,721,393 | 173.8 G | n/a | n/a |
 
 
+
 ## Step 2:  Remove duplicated pairs
 Here the software [fastuniq v1.1](https://sourceforge.net/projects/fastuniq) was used to remove a read pair if both the forward and reverse reads match (identical or nearly identical). The publication can be found here:  
 Xu H, Luo X, Qian J, Pang X, Song J, Qian G, et al. (2012) FastUniq: A Fast De Novo Duplicates Removal Tool for Paired Short Reads. PLoS ONE 7(12): e52249. https://doi.org/10.1371/journal.pone.0052249  
-_Abstract_  
-"The presence of duplicates introduced by PCR amplification is a major issue in paired short reads from next-generation sequencing platforms. These duplicates might have a serious impact on research applications, such as scaffolding in whole-genome sequencing and discovering large-scale genome variations, and are usually removed. We present FastUniq as a fast de novo tool for removal of duplicates in paired short reads. FastUniq identifies duplicates by comparing sequences between read pairs and does not require complete genome sequences as prerequisites. FastUniq is capable of simultaneously handling reads with different lengths and results in highly efficient running time, which increases linearly at an average speed of 87 million reads per 10 minutes"
+
+   _Abstract_  
+   "The presence of duplicates introduced by PCR amplification is a major issue in paired short reads from next-generation sequencing platforms. These duplicates might have a serious impact on research applications, such as scaffolding in whole-genome sequencing and discovering large-scale genome variations, and are usually removed. We present FastUniq as a fast de novo tool for removal of duplicates in paired short reads. FastUniq identifies duplicates by comparing sequences between read pairs and does not require complete genome sequences as prerequisites. FastUniq is capable of simultaneously handling reads with different lengths and results in highly efficient running time, which increases linearly at an average speed of 87 million reads per 10 minutes"
 
 _Installation:_
 ```bash
-# Install fastp using git
-git clone https://github.com/OpenGene/fastp.git
-cd fastp
+# Install fastuniq
+wget https://sourceforge.net/projects/fastuniq/files/FastUniq-1.1.tar.gz
+tar -zxvf FastUniq-1.1.tar.gz
+cd FastUniq/source
 make
+```
+
+_Run fastuniq_  
+An example run is shown below, using the script [fastuniq.sh](./Data/fastuniq.sh).  Unfortunately, it is single threaded and requires a lot of memory (>200G for these files), but it runs fast (<2 hours).
+```bash
+# Submit fastuniq job for the PE500 data
+sbatch \
+   -J PE500 \
+   -o FastUniq.PE500.out \
+   -e FastUniq.PE500.err \
+   fastuniq.sh \
+   PE500
 ```
