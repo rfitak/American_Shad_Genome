@@ -19,7 +19,7 @@ Sometimes the code below only shows the code for a single run, and runs may be r
 | PE500 | 151 bp; Paired-end | TBD | 313,465,270 | 94,666,511,540 | 88.2% | 81.4% |
 | MP5k | 151 bp; Mate-pair | 5-7 kb | 226,692,460 | 68,461,122,920 | 93.1% | 85.3% |
 | MP10k | 151 bp; Mate-pair | 10-12 kb | 223,358,676 | 67,454,320,152 | 92.8% | 85.0% |
-| Total | n/a | n/a | 763,516,406 | 230,581,954,612 | n/a | n/a |
+| Total | n/a | n/a | 763,516,406 | 230,581,954,612 | 93.0% | 85.5% |
 
 
 ## Step 1:  Read trimming and filtering
@@ -99,7 +99,7 @@ _Summary of Results After Cleaning:_
 | PE500 | 239,477,910 | 70.1 G | 97.6% | 92.4% |
 | MP5k | 178,871,091 | 53.6 G | 97.1% | 91.2% |
 | MP10k | 167,372,392 | 50.1 G | 97.1% | 91.2% |
-| Total | 585,721,393 | 173.8 G | n/a | n/a |
+| Total | 585,721,393 | 173.8 G | 97.3% | n/a |
 
 
 
