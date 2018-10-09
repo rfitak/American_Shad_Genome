@@ -107,8 +107,8 @@ _Summary of Results After Cleaning:_
 Here the software [fastuniq v1.1](https://sourceforge.net/projects/fastuniq) was used to remove a read pair if both the forward and reverse reads match (identical or nearly identical). The publication can be found here:  
 Xu H, Luo X, Qian J, Pang X, Song J, Qian G, et al. (2012) FastUniq: A Fast De Novo Duplicates Removal Tool for Paired Short Reads. PLoS ONE 7(12): e52249. https://doi.org/10.1371/journal.pone.0052249  
 
-   _Abstract_  
-   "The presence of duplicates introduced by PCR amplification is a major issue in paired short reads from next-generation sequencing platforms. These duplicates might have a serious impact on research applications, such as scaffolding in whole-genome sequencing and discovering large-scale genome variations, and are usually removed. We present FastUniq as a fast de novo tool for removal of duplicates in paired short reads. FastUniq identifies duplicates by comparing sequences between read pairs and does not require complete genome sequences as prerequisites. FastUniq is capable of simultaneously handling reads with different lengths and results in highly efficient running time, which increases linearly at an average speed of 87 million reads per 10 minutes"
+  _Abstract_  
+  "The presence of duplicates introduced by PCR amplification is a major issue in paired short reads from next-generation sequencing platforms. These duplicates might have a serious impact on research applications, such as scaffolding in whole-genome sequencing and discovering large-scale genome variations, and are usually removed. We present FastUniq as a fast de novo tool for removal of duplicates in paired short reads. FastUniq identifies duplicates by comparing sequences between read pairs and does not require complete genome sequences as prerequisites. FastUniq is capable of simultaneously handling reads with different lengths and results in highly efficient running time, which increases linearly at an average speed of 87 million reads per 10 minutes"  
 
 _Installation:_
 ```bash
@@ -119,7 +119,7 @@ cd FastUniq/source
 make
 ```
 
-_Run fastuniq_  
+_Run fastuniq job_  
 An example run is shown below, using the script [fastuniq.sh](./Data/fastuniq.sh).  Unfortunately, it is single threaded and requires a lot of memory (>200G for these files), but it runs fast (<2 hours).
 ```bash
 # Submit fastuniq job for the PE500 data
@@ -130,3 +130,50 @@ sbatch \
    fastuniq.sh \
    PE500
 ```
+Here is the general content of the fastuniq job script:
+```bash
+# Read in file name stem
+n=PE500
+
+# Uncompress the trimmed reads from fastp (above)
+# Notice we don't change the contents of the file, but rather write to a new one
+echo "Unzipping the trimmed reads..."
+zcat ${n}_F.trimmed.fq.gz > ${n}.F.fq
+zcat ${n}_R.trimmed.fq.gz > ${n}.R.fq
+
+# Make input file (pairs of fastq files)
+ls ${n}.{F,R}.fq > ${n}.files
+
+echo "Running FastUniq..."
+fastuniq \
+   -i ${n}.files \
+   -t q \
+   -c 0 \
+   -o ${n}_F.trimmed.uniq.fq \
+   -p ${n}_R.trimmed.uniq.fq
+echo "Finished FastUniq..."
+
+# Remove files not needed
+rm -rf ${n}.files ${n}.F.fq ${n}.R.fq
+
+# Compress reads
+echo "Compressing files..."
+gzip ${n}_F.trimmed.uniq.fq
+gzip ${n}_R.trimmed.uniq.fq
+echo "Finished compressing files..."
+```
+_Parameters Explained:_
+- -i file :: input file with list of the pairs of files, __*does not recognize gzip*__
+- -t q :: output two fastq formatted files (forward and reverse)
+- -c 0 :: don't change the read IDs
+- -o file :: output file name for forward reads
+- -p file :: output file name for reverse reads
+
+_Summary of Results After Removing Duplicated Pairs:_  
+
+| Name | \# Paired Reads Before | \# Paired Reads After | \# Bases | Q20 bases | Q30 Bases |
+| --- | --- | --- | --- | --- | --- |
+| PE500 | 239,477,910 | xxxxx | xxx G | x% | x% |
+| MP5k | 178,871,091 | 93,007,002 | 13,870,957,879 G | x% | x% |
+| MP10k | 167,372,392 | xxxxx | xxx G | x% | x% |
+| Total | 585,721,393 | xxxxx | xxx G | n/a | n/a |
