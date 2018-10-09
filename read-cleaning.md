@@ -171,9 +171,9 @@ _Parameters Explained:_
 
 _Summary of Results After Removing Duplicated Pairs:_  
 
-| Name | \# Paired Reads Before | \# Paired Reads After | \# Bases | Q20 bases | Q30 Bases |
+| Name | \# Paired Reads Before | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- | --- |
 | PE500 | 239,477,910 | xxxxx | xxx G | x% | x% |
-| MP5k | 178,871,091 | 93,007,002 | 13,870,957,879 G | x% | x% |
-| MP10k | 167,372,392 | xxxxx | xxx G | x% | x% |
+| MP5k | 178,871,091 | 93,007,002 | 27,714,871,797 | 95.7% | x% |
+| MP10k | 167,372,392 | 76,805,039 | 22,869,981,489 | 95.3% | x% |
 | Total | 585,721,393 | xxxxx | xxx G | n/a | n/a |
