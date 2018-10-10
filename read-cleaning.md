@@ -173,10 +173,10 @@ _Summary of Results After Removing Duplicated Pairs:_
 
 | Name | \# Paired Reads Before | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- | --- |
-| PE500 | 239,477,910 | 233,830,309 | xxx | x% | x% |
+| PE500 | 239,477,910 | 233,830,309 | 68,514,025,011 | 97.6% | x% |
 | MP5k | 178,871,091 | 93,007,002 | 27,714,871,797 | 95.7% | 88.2% |
 | MP10k | 167,372,392 | 76,805,039 | 22,869,981,489 | 95.3% | 87.6% |
-| Total | 585,721,393 | xxxxx | xxx | n/a | n/a |
+| Total | 585,721,393 | xxxxx | 119,098,878,297 | 96.7% | 90.5% |
 
 __*Note*__  
 Use the command ```seqtk fqchk -q20 <(cat *.trimmed.fq.gz)``` to get the count of bases >=Q20 for all trimmed sequences, or other combination of files and quality score values.
