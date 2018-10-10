@@ -181,7 +181,7 @@ _Summary of Results After Removing Duplicated Pairs:_
 __*Note*__  
 Use the command ```seqtk fqchk -q20 <(cat *.trimmed.fq.gz)``` to get the count of bases >=Q20 for all trimmed sequences, or other combination of files and quality score values.
 
-## Step 3:  Remove overlapping mate-pir reads.
+## Step 3:  Remove overlapping mate-pair reads.
 Here the software [fastq-join v1.3.1](https://github.com/brwnj/fastq-join) was used to remove mate-pair reads (long insert) that overlap.  Since the insert size is expected to be large (>5kb), overlapping reads are thus too short of an insert or otherwise are error-prone. This step was not performed on paired-end reads since they are expected to overlap at times. The publication can be found here:  
 Erik Aronesty (2013). TOBioiJ : "Comparison of Sequencing Utility Programs", http://doi.org/10.2174/1875036201307010001
 
