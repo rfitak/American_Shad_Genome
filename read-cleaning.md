@@ -99,7 +99,7 @@ _Summary of Results After Cleaning:_
 | PE500 | 239,477,910 | 70.1 G | 97.6% | 92.4% |
 | MP5k | 178,871,091 | 53.6 G | 97.1% | 91.2% |
 | MP10k | 167,372,392 | 50.1 G | 97.1% | 91.2% |
-| Total | 585,721,393 | 173.8 G | 97.3% | 91.7% |
+| Total | 585,721,393 | 173,816,939,607 | 97.3% | 91.7% |
 
 
 
@@ -173,10 +173,10 @@ _Summary of Results After Removing Duplicated Pairs:_
 
 | Name | \# Paired Reads Before | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- | --- |
-| PE500 | 239,477,910 | 233,830,309 | 68,514,025,011 | 97.6% | x% |
+| PE500 | 239,477,910 | 233,830,309 | 68,514,025,011 | 97.6% | 92.4% |
 | MP5k | 178,871,091 | 93,007,002 | 27,714,871,797 | 95.7% | 88.2% |
 | MP10k | 167,372,392 | 76,805,039 | 22,869,981,489 | 95.3% | 87.6% |
-| Total | 585,721,393 | xxxxx | 119,098,878,297 | 96.7% | 90.5% |
+| Total | 585,721,393 | 403,642,350 | 119,098,878,297 | 96.7% | 90.5% |
 
 __*Note*__  
 Use the command ```seqtk fqchk -q20 <(cat *.trimmed.fq.gz)``` to get the count of bases >=Q20 for all trimmed sequences, or other combination of files and quality score values.
