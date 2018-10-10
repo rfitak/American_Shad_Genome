@@ -195,6 +195,58 @@ git clone https://github.com/brwnj/fastq-join
 cd fastq-join
 make
 ```
+_Run fastq-join job_  
+An example run is shown below, using the script [fastq-join.sh](./Data/fastq-join.sh).  Unfortunately, it is also single threaded and requires a lot of memory (>200G for these files).  Remember, it was only run on the two mate-pair files. Running time took XX hours.
+```bash
+# Submit fastq-join job for the MP5k data
+sbatch \
+   -J MP5k \
+   -o fastq-join.MP5k.out \
+   -e fastq-join.MP5k.err \
+   fastq-join.sh \
+   MP5k
+```
+Here is the general content of the fastq-join job script:
+```bash
+# Read in file name stem
+n=MP5k
 
+# Uncompress reads
+echo "Unzipping the trimmed and deduplicated reads..."
+zcat ${n}_F.trimmed.uniq.fq.gz > ${n}.F.fq
+zcat ${n}_R.trimmed.uniq.fq.gz > ${n}.R.fq
+
+# Run fastq-join
+echo "Running fastq-join"
+fastq-join \
+	-o ${n}. \
+	-v ' ' \
+	-p 10 \
+	-m 10 \
+	-r ${n}.stitch \
+	${n}.F.fq \
+	${n}.R.fq
+echo "Finished FastUniq..."
+
+# Compress reads
+echo "Compressing files..."
+mv ${n}.un1 ${n}_F.trimmed.uniq.unj.fq
+gzip ${n}_F.trimmed.uniq.unj.fq
+mv ${n}.un2 ${n}_R.trimmed.uniq.unj.fq
+gzip ${n}_R.trimmed.uniq.unj.fq
+mv ${n}.join ${n}.joined.fq
+gzip ${n}.joined.fq
+echo "Finished compressing files..."
+
+# Cleanup
+rm -rf ${n}.stitch ${n}.F.fq ${n}.R.fq
+```
+_Parameters Explained:_
+- -o stem :: output file name stem, un1, un2, or join are added
+- -v ' ' :: this character (a space here), is used to separate the read ID lines (normal for illumina)
+- -p 10 :: N-percent maximum difference
+- -m 10 :: N-minimum overlap
+- -r file :: Verbose stitch length report
+- two input files, __*does not recognize gzip*__
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
