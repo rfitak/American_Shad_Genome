@@ -249,4 +249,9 @@ _Parameters Explained:_
 - -r file :: Verbose stitch length report
 - two input files, __*does not recognize gzip*__
 
+| Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
+| --- | --- | --- | --- | --- |
+| MP5k | xxxxx | xxxxx | xxxxx | xxxxx |
+| MP10k | 60,334,373 | 17,996,089,046 | 95.1% | 87.2% |
+
 Note: use Pilon (Broad Github) for checking and improving assembly)
