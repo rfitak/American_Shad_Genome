@@ -181,4 +181,20 @@ _Summary of Results After Removing Duplicated Pairs:_
 __*Note*__  
 Use the command ```seqtk fqchk -q20 <(cat *.trimmed.fq.gz)``` to get the count of bases >=Q20 for all trimmed sequences, or other combination of files and quality score values.
 
+## Step 3:  Remove overlapping mate-pir reads.
+Here the software [fastq-join v1.3.1](https://github.com/brwnj/fastq-join) was used to remove mate-pair reads (long insert) that overlap.  Since the insert size is expected to be large (>5kb), overlapping reads are thus too short of an insert or otherwise are error-prone. This step was not performed on paired-end reads since they are expected to overlap at times. The publication can be found here:  
+Erik Aronesty (2013). TOBioiJ : "Comparison of Sequencing Utility Programs", http://doi.org/10.2174/1875036201307010001
+
+  _From the paper_  
+  "Several high-throughput sequencing technologies perform “paired end” sequencing, often used for improving alignment specificity. In this technique, the fragments are sequenced from both ends (Fig. 2). With long insert sizes, these can be used for improved assembly (known as scaffolding), transcriptome determination and other applications. However, when the insert size is shorter than the total number of bases read, the sequencer will read the same region twice, once in one direction and then again in the other. These reads can be “joined” using several publically available tools, including SeqPrep, fastq-join, [mergePairs.py](code.google.com/p/standardized-velvet-assembly-report), and [Audy’s “stitch” program](github.com/audy/stitch). These overlapping regions will then be overrepresented (sequenced twice for the same molecule), and this may result in bias, especially for exome capture or other smaller regions. For this reason, and for testing library preparation, “joining” may be done."
+
+_Installation:_
+```bash
+# Install fastq-join
+git clone https://github.com/brwnj/fastq-join
+cd fastq-join
+make
+```
+
+
 Note: use Pilon (Broad Github) for checking and improving assembly)
