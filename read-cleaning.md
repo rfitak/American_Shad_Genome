@@ -196,7 +196,7 @@ cd fastq-join
 make
 ```
 _Run fastq-join job_  
-An example run is shown below, using the script [fastq-join.sh](./Data/fastq-join.sh).  Unfortunately, it is also single threaded and requires a lot of memory (>200G for these files).  Remember, it was only run on the two mate-pair files. Running time took XX hours.
+An example run is shown below, using the script [fastq-join.sh](./Data/fastq-join.sh).  Unfortunately, it is also single threaded and requires a lot of memory (>200G for these files).  Remember, it was only run on the two mate-pair files. Running time took 2.5 hours.
 ```bash
 # Submit fastq-join job for the MP5k data
 sbatch \
