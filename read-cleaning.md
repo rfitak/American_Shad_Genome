@@ -266,12 +266,35 @@ efetch \
    -format fasta \
    -id NC_014690.1 >> Asap_mito.fasta
 ```
-
+_Do the Mapping and Extract the Remaining Reads_
+This uses `bowtie21`, which has been enabled for mate-pair reads.  Only examples are shown below, please see [remove-mito.sh](./Data/fastq-join.sh) script for full code.
 ```bash
-wget https://sourceforge.net/projects/bbmap/files/BBMap_38.26.tar.gz
-tar -zxvf BBMap_38.26.tar.gz
-cd bbmap
+# Build index of reference
+bowtie2-build Asap_mito.fasta Asap_mito
 
+# Run mapping script, remember the parameters differ for each of the three libraries.
+xxxx
+
+# Do Mapping for PE reads
+bowtie2 \
+   --phred33 \
+   -q \
+   --very-sensitive \
+   --minins 0 \
+   --maxins 500 \
+   --fr \
+   --un-conc-gz un-conc.fq.gz \
+   --threads 8 \
+   --reorder \
+   -x Asap_mito \
+   -1 test.F.fq.gz \
+   -2 test.R.fq.gz 
 ```
+_Parameters Explained:_
+- -o stem :: output file name stem, un1, un2, or join are added
+- -v ' ' :: this character (a space here), is used to separate the read ID lines (normal for illumina)
+- -p 10 :: N-percent maximum difference
+
+
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
