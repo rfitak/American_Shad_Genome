@@ -267,5 +267,11 @@ efetch \
    -id NC_014690.1 >> Asap_mito.fasta
 ```
 
+```bash
+wget https://sourceforge.net/projects/bbmap/files/BBMap_38.26.tar.gz
+tar -zxvf BBMap_38.26.tar.gz
+cd bbmap
+
+```
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
