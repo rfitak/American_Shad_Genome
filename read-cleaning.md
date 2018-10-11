@@ -97,7 +97,7 @@ _Summary of Results After Cleaning:_
 | Name | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
 | --- | --- | --- | --- | --- |
 | PE500 | 239,477,910 | 70,144,071,953 | 97.6% | 92.4% |
-| MP5k | 178,871,091 | 53.6 G | 97.1% | 91.2% |
+| MP5k | 178,871,091 | 53,563,193,951 | 97.1% | 91.2% |
 | MP10k | 167,372,392 | 50.1 G | 97.1% | 91.2% |
 | Total | 585,721,393 | 173,816,939,607 | 97.3% | 91.7% |
 
@@ -251,7 +251,7 @@ _Parameters Explained:_
 
 | Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- |
-| MP5k | xxxxx | xxxxx | xxxxx | xxxxx |
+| MP5k | 76,421,553 | 22,815,584,213 | 95.4% | 87.8% |
 | MP10k | 60,334,373 | 17,996,089,046 | 95.1% | 87.2% |
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
