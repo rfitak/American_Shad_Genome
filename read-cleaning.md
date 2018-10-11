@@ -254,4 +254,18 @@ _Parameters Explained:_
 | MP5k | 76,421,553 | 22,815,584,213 | 95.4% | 87.8% |
 | MP10k | 60,334,373 | 17,996,089,046 | 95.1% | 87.2% |
 
+
+## Step 4:  Remove mitochondrial reads
+Since a mitogenome sequence for American shad already exists, it is useful to remove mitochondrial sequences form the dataset.  This reduces the overall computational burden and facilitates less cleanup of the final, assembled scaffolds.  It is possible this may filter some occassional nuclear-mitochondrial insertions, but we can accept that since the read pair information will help minimize this.  We use the `efetch` command from the [NCBI E-utilities toolset](https://www.ncbi.nlm.nih.gov/home/tools/) to download the mitogenome sequence.  The mitogenome was published in:
+Bi YH and Chen XW (2011). Mitochondrial genome of the American shad _Alosa sapidissima_. Mitochondrial DNA 22(1-2):9-11. http://doi.org/10.3109/19401736.2010.551659.
+
+_Download the mitogenome_
+```bash
+efetch \
+   -db nucleotide \
+   -format fasta \
+   -id NC_014690.1 >> Asap_mito.fasta
+```
+
+
 Note: use Pilon (Broad Github) for checking and improving assembly)
