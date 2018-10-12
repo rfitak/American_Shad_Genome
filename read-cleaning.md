@@ -289,7 +289,7 @@ bowtie2 \
    -1 PE500_F.trimmed.uniq.fq.gz \
    -2 PE500_R.trimmed.uniq.fq.gz | \
    samtools1.3 view -b -f 12 -F 256 | \
-   samtools1.3 sort -n -O bam | \
+   samtools1.3 sort -T PE500.tmp -n -O bam | \
    bedtools bamtofastq -i - -fq PE500_F.trimmed.uniq.noMito.fq -fq2 PE500_R.trimmed.uniq.noMito.fq
 
 # Compress the resulting reads
@@ -314,6 +314,7 @@ _Parameters Explained:_
 - Samtools sort
   - -n :: sort by read name for forward and reverse reads are next to each other
   - -O bam :: output bam format
+  - -T XX.tmp :: temporary file names for sorting bam files.  Set this or else they may overwrite each other.
 - Bedtools bamtofastq
   - -i :: input bam file, uses standard input here
   - -fq/-fq2 :: forward and reverse output fastq files.
