@@ -283,17 +283,43 @@ bowtie2 \
    --minins 0 \
    --maxins 500 \
    --fr \
-   --un-conc-gz un-conc.fq.gz \
    --threads 8 \
    --reorder \
    -x Asap_mito \
-   -1 test.F.fq.gz \
-   -2 test.R.fq.gz 
+   -1 PE500_F.trimmed.uniq.fq.gz \
+   -2 PE500_R.trimmed.uniq.fq.gz | \
+   samtools1.3 view -b -f 12 -F 256 | \
+   samtools1.3 sort -n -O bam | \
+   bedtools bamtofastq -i - -fq PE500_F.trimmed.uniq.noMito.fq -fq2 PE500_R.trimmed.uniq.noMito.fq
+
+# Compress the resulting reads
+gzip PE500_F.trimmed.uniq.noMito.fq
+gzip PE500_R.trimmed.uniq.noMito.fq
 ```
 _Parameters Explained:_
-- -o stem :: output file name stem, un1, un2, or join are added
-- -v ' ' :: this character (a space here), is used to separate the read ID lines (normal for illumina)
-- -p 10 :: N-percent maximum difference
+- --phred33 :: use phred33 offset for quality scores (standard for recent illumina data)
+- -q :: fastq format
+- --very-sensitive :: end-to-end alignment, -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+- --minins 0 :: minimum insert size
+- --maxins 500 :: maximum insert size
+- --fr :: paired-end orientation
+- --threads 8 :: use 8 cpus
+- --reorder :: sort the output same file
+- -x Asap_mito :: basename for the indexed reference to map against
+- -1/-2 :: forward and reverse read file names.  *__Recognizes gzip__*
+- Samtools view
+  - -b :: output bam format
+  - -f 12 :: keep only unmapped reads (including if mate is unmapped)
+  - -F 256 :: exclude if not the primary alignment
+- Samtools sort
+  - -n :: sort by read name for forward and reverse reads are next to each other
+  - -O bam :: output bam format
+- Bedtools bamtofastq
+  - -i :: input bam file, uses standard input here
+  - -fq/-fq2 :: forward and reverse output fastq files.
+
+
+
 
 
 
