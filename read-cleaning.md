@@ -266,8 +266,8 @@ efetch \
    -format fasta \
    -id NC_014690.1 >> Asap_mito.fasta
 ```
-_Do the Mapping and Extract the Remaining Reads_
-This uses `bowtie21`, which has been enabled for mate-pair reads.  Only examples are shown below, please see [remove-mito.sh](./Data/fastq-join.sh) script for full code.
+_Do the Mapping and Extract the Remaining Reads_  
+This uses `bowtie2`, which has been enabled for mate-pair reads.  Only examples are shown below, please see [remove-mitoPE500.sh](./Data/remove-mitoPE500.sh) script for full code.
 ```bash
 # Build index of reference
 bowtie2-build Asap_mito.fasta Asap_mito
@@ -318,7 +318,7 @@ _Parameters Explained:_
   - -i :: input bam file, uses standard input here
   - -fq/-fq2 :: forward and reverse output fastq files.
 
-
+For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh) and [remove-mitoMP10k.sh](./Data/remove-mitoMP10k.sh) scripts.
 
 
 
