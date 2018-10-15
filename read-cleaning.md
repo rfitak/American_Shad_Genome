@@ -14,7 +14,8 @@ This section will start with the raw sequencing data and perform a series a clea
 Sometimes the code below only shows the code for a single run, and runs may be repeated for different files. For reference to the amount of resources required, see the accompanying .sh scripts in the [Data](./Data) folder.
 
 ### Raw Data Summary:
-| Name | Type | Insert Size | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
+
+| Name | Type | Insert Size | # Paired Reads | # Bases | Q20 bases | Q30 Bases |
 | --- | --- | --- | --- | --- | --- | --- |
 | PE500 | 151 bp; Paired-end | TBD | 313,465,270 | 94,666,511,540 | 88.2% | 81.4% |
 | MP5k | 151 bp; Mate-pair | 5-7 kb | 226,692,460 | 68,461,122,920 | 93.1% | 85.3% |
