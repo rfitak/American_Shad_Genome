@@ -1,4 +1,4 @@
-![shad1](./images/shad1.jpg)
+![shad](./images/shad.jpg)
 
 ### Understanding the evolutionary novelties of the “fish that fed the Nation’s founders”
 _Background_  
