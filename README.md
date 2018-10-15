@@ -21,6 +21,12 @@ Some ancillary data files and custom scripts are available in the [Data](./Data)
 1. [Read Cleaning](./read-cleaning.md)
     - trimming, filtering, adapter removal, etc. for the raw sequencing reads.
 
+## People
+
+| Robert Fitak | Jay Wheeler | Sönke Johnsen |
+| --- | --- | --- |
+| ./images/bob1.jpg | image | image |
+| Lead scientist, bioinformatician | Lab Manager, animal care, aspiring bioinformatician | Lab head, thinks its cool |
 
 ## Licesnse
 ### All code and content herein is licensed under:
