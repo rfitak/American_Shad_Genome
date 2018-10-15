@@ -1,12 +1,3 @@
----
 theme: jekyll-theme-cayman
 title: The American Shad Genome Project
 description: De Novo Assembly and Annotation of the American Shad (<i>Alosa sapidissima</i>) Genome
----
-navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - Learn markdown: "http://www.markdowntutorial.com/"
-    - GitHub Pages: "https://pages.github.com/"
-  Author's home: "https://robertfitak.weebly.com"
