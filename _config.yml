@@ -1,6 +1,8 @@
+---
 theme: jekyll-theme-cayman
 title: The American Shad Genome Project
 description: De Novo Assembly and Annotation of the American Shad (<i>Alosa sapidissima</i>) Genome
+---
 navbar-links:
   About Me: "aboutme"
   Resources:
