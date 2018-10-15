@@ -5,7 +5,7 @@
 
 # If you are building a GitHub project page then use these settings:
 url: "http://rfitak.github.io/American_Shad_Genome"
-#baseurl: "/American_Shad_Genome"
+baseurl: "/American_Shad_Genome"
 
 # Of course don't forget to change the username and projectname to YOUR username and project
 
