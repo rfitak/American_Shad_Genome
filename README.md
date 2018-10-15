@@ -25,7 +25,7 @@ Some ancillary data files and custom scripts are available in the [Data](./Data)
 
 | Robert Fitak | Jay Wheeler | Sönke Johnsen |
 | --- | --- | --- |
-| ./images/bob1.jpg | ./images/jay1.jpg | image |
+| ![bob1](./images/bob1.jpg) | ![jay1](./images/jay1.jpg) | ![sonke1](./images/sonke1.jpg) |
 | Lead scientist, bioinformatician | Lab Manager, animal care, aspiring bioinformatician | Lab head, thinks its cool |
 
 ## Licesnse
