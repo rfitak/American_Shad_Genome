@@ -29,7 +29,7 @@ Some ancillary data files and custom scripts are available in the [Data](./Data)
 | --- | --- | --- |
 | ![bob1](./images/bob1.jpg) | ![jay](./images/jay.jpg) | ![sonke1](./images/sonke1.jpg) |
 | Lead scientist, bioinformatician | Lab Manager, animal care, aspiring bioinformatician | Lab head, thinks it's cool |
-
+_______________________________________________________
 ## License
 ### All code and content herein is licensed under:
 ### [GNU General Public License v3.0](./LICENSE)
