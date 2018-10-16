@@ -349,7 +349,7 @@ tar -zxvf musket-1.1.tar.gz
 cd musket-1.1
 make
 ```
-_Perform the Error Correction_  
+_Perform the Error Correction_ - See the [musket.sh](./Data/musket.sh)  
 ```bash
 musket \
    -k 21 536870912 \
@@ -365,6 +365,7 @@ musket \
    MP10k_F.trimmed.uniq.unj.noMito.fq.gz \
    MP10k_R.trimmed.uniq.unj.noMito.fq.gz
 ```
-
+_Parameters Explained:_
+- --phred33 :: use phred33 offset for quality scores (standard for recent illumina data)
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
