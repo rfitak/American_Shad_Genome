@@ -1,4 +1,4 @@
-# Raw Sequencing Read Cleaning
+# Cleaning the Raw Sequencing Reads
 This section will start with the raw sequencing data and perform a series a cleaning steps to prepare the sequences for the genome assembly.  The various steps include:
 1.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
     - Program: [fastp](https://github.com/OpenGene/fastp)
@@ -321,7 +321,7 @@ _Parameters Explained:_
   - -i :: input bam file, uses standard input here
   - -fq/-fq2 :: forward and reverse output fastq files.
 
-_Summary of Results After Removing Duplicated Pairs:_  
+_Summary of Results After Removing Mitochondrial Reads:_  
 
 | Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- |
