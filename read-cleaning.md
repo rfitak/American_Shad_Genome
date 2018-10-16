@@ -250,6 +250,8 @@ _Parameters Explained:_
 - -r file :: Verbose stitch length report
 - two input files, __*does not recognize gzip*__
 
+_Summary of Results After Removing Overlapping Mate-Pairs:_  
+
 | Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- |
 | MP5k | 76,421,553 | 22,815,584,213 | 95.4% | 87.8% |
@@ -289,7 +291,7 @@ bowtie2 \
    -x Asap_mito \
    -1 PE500_F.trimmed.uniq.fq.gz \
    -2 PE500_R.trimmed.uniq.fq.gz | \
-   samtools1.3 view -b -f 12 -F 256 | \
+   samtools1.3 view -b -F 2 | \
    samtools1.3 sort -T PE500.tmp -n -O bam | \
    bedtools bamtofastq -i - -fq PE500_F.trimmed.uniq.noMito.fq -fq2 PE500_R.trimmed.uniq.noMito.fq
 
@@ -310,8 +312,7 @@ _Parameters Explained:_
 - -1/-2 :: forward and reverse read file names.  *__Recognizes gzip__*
 - Samtools view
   - -b :: output bam format
-  - -f 12 :: keep only unmapped reads (including if mate is unmapped)
-  - -F 256 :: exclude if not the primary alignment
+  - -F 2 :: exclude all properly paired and mapped reads
 - Samtools sort
   - -n :: sort by read name for forward and reverse reads are next to each other
   - -O bam :: output bam format
@@ -319,6 +320,15 @@ _Parameters Explained:_
 - Bedtools bamtofastq
   - -i :: input bam file, uses standard input here
   - -fq/-fq2 :: forward and reverse output fastq files.
+
+_Summary of Results After Removing Duplicated Pairs:_  
+
+| Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
+| --- | --- | --- | --- | --- |
+| PE500 | 232,020,941 | 67,978,401,922  | 97.6 | 92.4 |
+| MP5k  | 76,414,698  | 22,813,532,162  | 95.4 | 87.8 |
+| MP10k | 60,302,741  | 17,994,765,464  | 95.1 | 87.2 |
+| All   | 368,738,380 | 108,786,699,548 | 96.7 | 90.5 |
 
 For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh) and [remove-mitoMP10k.sh](./Data/remove-mitoMP10k.sh) scripts.
 
