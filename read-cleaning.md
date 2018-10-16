@@ -305,7 +305,7 @@ _Parameters Explained:_
 - --very-sensitive :: end-to-end alignment, -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
 - --minins 0 :: minimum insert size
 - --maxins 500 :: maximum insert size
-- --fr :: paired-end orientation
+- --fr :: paired-end orientation  *__SWITCH TO --rf FOR MATE-PAIR READS*__
 - --threads 8 :: use 8 cpus
 - --reorder :: sort the output same file
 - -x Asap_mito :: basename for the indexed reference to map against
@@ -316,7 +316,7 @@ _Parameters Explained:_
 - Samtools sort
   - -n :: sort by read name for forward and reverse reads are next to each other
   - -O bam :: output bam format
-  - -T XX.tmp :: temporary file names for sorting bam files.  Set this or else they may overwrite each other.
+  - -T PE500.tmp :: temporary file names for sorting bam files.  Set this or else they may overwrite each other.
 - Bedtools bamtofastq
   - -i :: input bam file, uses standard input here
   - -fq/-fq2 :: forward and reverse output fastq files.
