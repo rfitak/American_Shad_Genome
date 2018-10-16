@@ -333,6 +333,6 @@ _Summary of Results After Removing Mitochondrial Reads:_
 For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh) and [remove-mitoMP10k.sh](./Data/remove-mitoMP10k.sh) scripts.
 
 
-
+## Step 5:  Error Correction
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
