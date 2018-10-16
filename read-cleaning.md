@@ -334,5 +334,20 @@ For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh)
 
 
 ## Step 5:  Error Correction
+[Salzberg et al. (2012)](https://dx.doi.org/10.1101%2Fgr.131383.111) have shown that the error correction of sequencing reads can greatly improve the _de novo_ assembly of genomes, especially when the assembly program (e.g., ABYSS) does include a built-in error correction step. Here we use the software [musket v1.1](http://musket.sourceforge.net/homepage.htm) to error-correct the cleaned sequencing reads. Although numerous error-correction tools exist, it has been empirically demonstrated that [musket](http://musket.sourceforge.net/homepage.htm) consistently outperforms many other algorithms in the balance of speed and sensitivity while rarely introducing a new error ([Heydari et al. 2017](https://dx.doi.org/10.1186%2Fs12859-017-1784-8); [Akogwu et al. 2016](https://doi.org/10.1186/s40246-016-0068-0)). The publication can be found here:  
+Liu Y, Schroeder J, and Schmidt B (2013) Musket: a multistage k-mer spectrum based error corrector for Illumina sequence data. _Bioinformatics_ 29(3): 308-315. https://doi.org/10.1093/bioinformatics/bts690  
+
+  _From the paper_ 
+"__Motivation:__ The imperfect sequence data produced by next-generation sequencing technologies have motivated the development of a number of short-read error correctors in recent years. The majority of methods focus on the correction of substitution errors, which are the dominant error source in data produced by Illumina sequencing technology. Existing tools either score high in terms of recall or precision but not consistently high in terms of both measures.  
+__Results:__ In this article, we present Musket, an efficient multistage k-mer-based corrector for Illumina short-read data. We use the k-mer spectrum approach and introduce three correction techniques in a multistage workflow: two-sided conservative correction, one-sided aggressive correction and voting-based refinement. Our performance evaluation results, in terms of correction quality and de novo genome assembly measures, reveal that Musket is consistently one of the top performing correctors. In addition, Musket is multi-threaded using a master–slave model and demonstrates superior parallel scalability compared with all other evaluated correctors as well as a highly competitive overall execution time."  
+
+_Installation:_
+```bash
+# Install musket v1.1
+wget https://sourceforge.net/projects/musket/files/musket-1.1.tar.gz
+tar -zxvf musket-1.1.tar.gz 
+cd musket-1.1
+make
+```
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
