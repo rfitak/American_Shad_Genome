@@ -349,5 +349,22 @@ tar -zxvf musket-1.1.tar.gz
 cd musket-1.1
 make
 ```
+_Perform the Error Correction_  
+```bash
+musket \
+   -k 21 536870912 \
+   -p 12 \
+   -omulti corrected \
+   -inorder \
+   -zlib \
+   -lowercase \
+   PE500_F.trimmed.uniq.noMito.fq.gz \
+   PE500_R.trimmed.uniq.noMito.fq.gz \
+   MP5k_F.trimmed.uniq.unj.noMito.fq.gz \
+   MP5k_R.trimmed.uniq.unj.noMito.fq.gz \
+   MP10k_F.trimmed.uniq.unj.noMito.fq.gz \
+   MP10k_R.trimmed.uniq.unj.noMito.fq.gz
+```
+
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
