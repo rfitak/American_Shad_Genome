@@ -20,7 +20,7 @@ Sometimes the code below only shows the code for a single run, and runs may be r
 | PE500 | 151 bp; Paired-end | TBD | 313,465,270 | 94,666,511,540 | 88.2% | 81.4% |
 | MP5k | 151 bp; Mate-pair | 5-7 kb | 226,692,460 | 68,461,122,920 | 93.1% | 85.3% |
 | MP10k | 151 bp; Mate-pair | 10-12 kb | 223,358,676 | 67,454,320,152 | 92.8% | 85.0% |
-| Total | n/a | n/a | 763,516,406 | 230,581,954,612 | 93.0% | 85.5% |
+| __Total__ | n/a | n/a | 763,516,406 | 230,581,954,612 | 93.0% | 85.5% |
 
 
 ## Step 1:  Read trimming and filtering
@@ -177,7 +177,7 @@ _Summary of Results After Removing Duplicated Pairs:_
 | PE500 | 239,477,910 | 233,830,309 | 68,514,025,011 | 97.6% | 92.4% |
 | MP5k | 178,871,091 | 93,007,002 | 27,714,871,797 | 95.7% | 88.2% |
 | MP10k | 167,372,392 | 76,805,039 | 22,869,981,489 | 95.3% | 87.6% |
-| Total | 585,721,393 | 403,642,350 | 119,098,878,297 | 96.7% | 90.5% |
+| __Total__ | 585,721,393 | 403,642,350 | 119,098,878,297 | 96.7% | 90.5% |
 
 __*Note*__  
 Use the command ```seqtk fqchk -q20 <(zcat *.trimmed.fq.gz)``` to get the count of bases >=Q20 for all trimmed sequences, or other combination of files and quality score values.
@@ -328,7 +328,7 @@ _Summary of Results After Removing Mitochondrial Reads:_
 | PE500 | 232,020,941 | 67,978,401,922  | 97.6 | 92.4 |
 | MP5k  | 76,414,698  | 22,813,532,162  | 95.4 | 87.8 |
 | MP10k | 60,302,741  | 17,994,765,464  | 95.1 | 87.2 |
-| All   | 368,738,380 | 108,786,699,548 | 96.7 | 90.5 |
+| __Total__ | 368,738,380 | 108,786,699,548 | 96.7 | 90.5 |
 
 For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh) and [remove-mitoMP10k.sh](./Data/remove-mitoMP10k.sh) scripts.
 
