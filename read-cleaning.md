@@ -368,4 +368,21 @@ musket \
 _Parameters Explained:_
 - --phred33 :: use phred33 offset for quality scores (standard for recent illumina data)
 
+## Summary of Results
+| Step | PE500 | MP5k | MP10k | __Total__ |
+| --- | --- | --- | --- | --- |
+| Raw Reads | 313,465,270 | 226,692,460 | 223,358,676 | 763,516,406 |
+| Raw Bases | 94,666,511,540 | 68,461,122,920 | 67,454,320,152 | 230,581,954,612 |
+| Trimmed Reads | 239,477,910 | 178,871,091 | 167,372,392 | 585,721,393 |
+| Trimmed Bases | 70,144,071,953 | 53,563,193,951 | 50,109,673,703 | 173,816,939,607 |
+| Trimmed & Deduped Reads | 233,830,309 | 93,007,002 | 76,805,039 | 403,642,350 |
+| Trimmed & Deduped Bases | 68,514,025,011 | 27,714,871,797 | 22,869,981,489 | 119,098,878,297 |
+| Trimmed, Deduped, Uniq Reads | n/a | 76,421,553 | 60,334,373 | n/a |
+| Trimmed, Deduped, Uniq Bases | n/a | 22,815,584,213 | 17,996,089,046 | n/a |
+| Trimmed, Uniq, Deduped, no Mito Reads | 232,020,941 | 76,414,698 | 60,302,741 | 368,738,380 |
+| Trimmed, Uniq, Deduped, no Mito Bases | 67,978,401,922 | 22,813,532,162 | 17,994,765,464 | 108,786,699,548 |
+| Error-corrected Reads | --- | --- | --- | --- |
+| Error-corrected Bases | --- | --- | --- | --- |
+
+
 Note: use Pilon (Broad Github) for checking and improving assembly)
