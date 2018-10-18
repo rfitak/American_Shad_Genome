@@ -370,6 +370,7 @@ _Parameters Explained:_
 
 ____________________________
 ## Summary of Results
+
 | Step | PE500 | MP5k | MP10k | __Total__ |
 | --- | --- | --- | --- | --- |
 | Raw Reads | 313,465,270 | 226,692,460 | 223,358,676 | 763,516,406 |
@@ -383,7 +384,7 @@ ____________________________
 | Trimmed, Deduped, Uniq, no Mito Reads | 232,020,941 | 76,414,698 | 60,329,949 | 368,765,588 |
 | Trimmed, Deduped, Uniq, no Mito Bases | 67,978,401,922 | 22,813,532,162 | 17,994,765,464 | 108,786,699,548 |
 | Error-corrected Reads | --- | --- | --- | --- |
-| Error-corrected Bases | --- | --- | --- | --- |
+| Error-corrected Bases | --- | --- | --- | --- |  
 
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
