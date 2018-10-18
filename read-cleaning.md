@@ -380,7 +380,7 @@ ____________________________
 | Trimmed & Deduped Bases | 68,514,025,011 | 27,714,871,797 | 22,869,981,489 | 119,098,878,297 |
 | Trimmed, Deduped, Uniq Reads | n/a | 76,421,553 | 60,334,373 | n/a |
 | Trimmed, Deduped, Uniq Bases | n/a | 22,815,584,213 | 17,996,089,046 | n/a |
-| Trimmed, Deduped, Uniq, no Mito Reads | 232,020,941 | 76,414,698 | 60,302,741 | 368,738,380 |
+| Trimmed, Deduped, Uniq, no Mito Reads | 232,020,941 | 76,414,698 | 60,329,949 | 368,765,588 |
 | Trimmed, Deduped, Uniq, no Mito Bases | 67,978,401,922 | 22,813,532,162 | 17,994,765,464 | 108,786,699,548 |
 | Error-corrected Reads | --- | --- | --- | --- |
 | Error-corrected Bases | --- | --- | --- | --- |
