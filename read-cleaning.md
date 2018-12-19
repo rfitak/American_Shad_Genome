@@ -1,7 +1,8 @@
 # Cleaning the Raw Sequencing Reads
 This section will start with the raw sequencing data and perform a series a cleaning steps to prepare the sequences for the genome assembly.  The various steps include:
 1.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
-    - Program: [fastp](https://github.com/OpenGene/fastp)
+    - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads
+    - Program: [nxtrim](https://github.com/sequencing/NxTrim) for mate-pair reads 
 2.  Removing identical read pairs
     - Program: [fastuniq](https://sourceforge.net/projects/fastuniq/)
 3.  Removing Mate-pair reads that overlap
@@ -24,7 +25,7 @@ Sometimes the code below only shows the code for a single run, and runs may be r
 
 
 ## Step 1:  Read trimming and filtering
-Here the new software [fastp v0.19.4](https://github.com/OpenGene/fastp) was used. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
+Here the new software [fastp v0.19.4](https://github.com/OpenGene/fastp) was used to trim the paired-end sequences. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
 Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 
 _Installation:_
@@ -50,15 +51,15 @@ fastp \
    -o ${name}_F.trimmed.fq.gz \
    -O ${name}_R.trimmed.fq.gz \
    -n 5 \
-   -q 30 \
+   -q 20 \
    -u 30 \
-   --length_required=100 \
+   --length_required=70 \
    --low_complexity_filter \
    --complexity_threshold=20 \
    --cut_by_quality3 \
    --cut_by_quality5 \
    --cut_window_size=4 \
-   --cut_mean_quality=30 \
+   --cut_mean_quality=20 \
    --trim_poly_g \
    --poly_g_min_len=10 \
    --overrepresentation_analysis \
@@ -71,15 +72,15 @@ _Parameters Explained:_
 - -i/-I :: input forward and reverse read files, recognizes gzip
 - -o/-O :: output forward and reverse read files, recognizes gzip
 - -n 5 :: if one read's number of N bases is >5, then this read pair is discarded
-- -q 30 :: minimum base quality score to keep
+- -q 20 :: minimum base quality score to keep
 - -u 30 :: Percent of bases allowed to be less than q in a read
-- --length_required=100 :: minimum read length to keep after trimming
+- --length_required=70 :: minimum read length to keep after trimming
 - --low_complexity_filter :: filter sequences with a low complexity
 - --complexity_threshold=20 :: threshold for sequence complexity filter
 - --cut_by_quality3 :: use a 3' sliding window trimmer, like trimmomatic
 - --cut_by_quality5 :: use a 5' sliding window trimmer, like trimmomatic
 - --cut_window_size=4 :: window size for the trimming
-- --cut_mean_quality=30 :: mean base score across the window required, or else trim the last base
+- --cut_mean_quality=20 :: mean base score across the window required, or else trim the last base
 - --trim_poly_g :: removes poly G tails for NovaSeq reads
 - --poly_g_min_len=10 :: minimum length for poly G removal
 - --overrepresentation_analysis :: look for overrepresented sequences, like adapters
