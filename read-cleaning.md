@@ -1,8 +1,7 @@
 # Cleaning the Raw Sequencing Reads
 This section will start with the raw sequencing data and perform a series a cleaning steps to prepare the sequences for the genome assembly.  The various steps include:
 1.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
-    - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads
-    - Program: [nxtrim](https://github.com/sequencing/NxTrim) for mate-pair reads 
+    - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads 
 2.  Removing identical read pairs
     - Program: [fastuniq](https://sourceforge.net/projects/fastuniq/)
 3.  Removing Mate-pair reads that overlap
@@ -37,7 +36,7 @@ make
 ```
 
 _Run fastp_  
-An example run is shown below, please see the scripts [trimPE500.sh](./Data/trimPE500.sh), [trimMP5k.sh](./Data/trimMP5k.sh), and [trimMP10k.sh](./Data/trimMP10k.sh) for more details on Job information.
+An example run is shown below, please see the scripts [trimMP5k.sh](./Data/trimMP5k.sh), and [trimMP10k.sh](./Data/trimMP10k.sh) for more details on Job information.
 ```bash
 # Assign names to each forward and reverse sequence reads file
 fwd="gDNA_S18_L002_R1_001.fastq.gz"
@@ -46,8 +45,8 @@ name="PE500"
 
 # Run fastp
 fastp \
-   -i ${fwd} \
-   -I ${rev} \
+   -i ../RAW_READS/${fwd} \
+   -I ../RAW_READS/${rev} \
    -o ${name}_F.trimmed.fq.gz \
    -O ${name}_R.trimmed.fq.gz \
    -n 5 \
@@ -89,7 +88,7 @@ _Parameters Explained:_
 - --report_title="$name" :: output report tile
 - --thread=8 :: number of cpus to use
 
-_See the Output HTML Files:_
+_See the Output HTML/PDF Files:_
 - [PE500](./Data/PE500.pdf)
 - [MP5k](./Data/MP5k.pdf)
 - [MP10k](./Data/MP10k.pdf)
