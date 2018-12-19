@@ -36,7 +36,7 @@ make
 ```
 
 _Run fastp_  
-An example run is shown below, please see the scripts [trimMP5k.sh](./Data/trimMP5k.sh), and [trimMP10k.sh](./Data/trimMP10k.sh) for more details on Job information.
+An example run is shown below, please see the scripts [trimPE500.sh](./Data/trimPE500.sh), [trimMP5k.sh](./Data/trimMP5k.sh), and [trimMP10k.sh](./Data/trimMP10k.sh) for more details on Job information.
 ```bash
 # Assign names to each forward and reverse sequence reads file
 fwd="gDNA_S18_L002_R1_001.fastq.gz"
