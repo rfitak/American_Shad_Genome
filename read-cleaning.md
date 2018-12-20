@@ -128,6 +128,8 @@ sbatch \
    -J PE500 \
    -o FastUniq.PE500.out \
    -e FastUniq.PE500.err \
+   -p common-large \
+   --mem=235G \
    fastuniq.sh \
    PE500
 ```
