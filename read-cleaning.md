@@ -278,7 +278,7 @@ This uses `bowtie2`, which has been enabled for mate-pair reads.  Only examples 
 bowtie2-build Asap_mito.fasta Asap_mito
 
 # Run mapping script, remember the parameters differ for each of the three libraries.
-xxxx
+sbatch remove-mitoPE500.sh
 
 # Do Mapping for PE reads
 bowtie2 \
