@@ -256,8 +256,8 @@ _Summary of Results After Removing Overlapping Mate-Pairs:_
 
 | Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- |
-| MP5k | 76,421,553 | 22,815,584,213 | 95.4% | 87.8% |
-| MP10k | 60,334,373 | 17,996,089,046 | 95.1% | 87.2% |
+| MP5k | 99,227,071 | 29,883,917,490 | 92.3% | 82.8% |
+| MP10k | 80,727,818 | 24,309,217,299 | 91.8% | 81.9% |
 
 
 ## Step 4:  Remove mitochondrial reads
