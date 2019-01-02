@@ -307,7 +307,7 @@ _Parameters Explained:_
 - --very-sensitive :: end-to-end alignment, -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
 - --minins 0 :: minimum insert size
 - --maxins 500 :: maximum insert size
-- --fr :: paired-end orientation  *__SWITCH TO --rf FOR MATE-PAIR READS*__
+- --fr :: paired-end orientation  *__SWITCH TO --rf FOR MATE-PAIR READS__*
 - --threads 8 :: use 8 cpus
 - --reorder :: sort the output same file
 - -x Asap_mito :: basename for the indexed reference to map against
