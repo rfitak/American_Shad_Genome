@@ -327,10 +327,10 @@ _Summary of Results After Removing Mitochondrial Reads:_
 
 | Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- |
-| PE500 | 232,020,941 | 67,978,401,922  | 97.6 | 92.4 |
-| MP5k  | 76,414,698  | 22,813,532,162  | 95.4 | 87.8 |
-| MP10k | 60,302,741  | 17,994,765,464  | 95.1 | 87.2 |
-| __Total__ | 368,738,380 | 108,786,699,548 | 96.7 | 90.5 |
+| PE500 | x | x  | x% | x% |
+| MP5k  | 99,218,471  | 29,881,323,271  | 92.3% | 82.8% |
+| MP10k | 80,722,266  | 24,307,542,327  | 91.8% | 81.9% |
+| __Total__ | x | x | x% | x% |
 
 For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh) and [remove-mitoMP10k.sh](./Data/remove-mitoMP10k.sh) scripts.
 
