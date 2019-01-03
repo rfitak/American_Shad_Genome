@@ -375,16 +375,16 @@ ____________________________
 
 | Step | PE500 | MP5k | MP10k | __Total__ |
 | --- | --- | --- | --- | --- |
-| Raw Reads | 313,465,270 | 226,692,460 | x | x |
-| Raw Bases | 94,666,511,540 | 68,461,122,920 | x | x |
-| Trimmed Reads | 280,454,045 | 207,677,745 | x | x |
-| Trimmed Bases | 81,520,790,896 | 62,423,641,430 | x | x |
-| Trimmed & Deduped Reads | 275,015,380 | 118,415,796 | x | x |
-| Trimmed & Deduped Bases | 79,988,291,387 | 35,530,415,027 | x | x |
-| Trimmed, Deduped, Uniq Reads | n/a | 99,227,071 | x | n/a |
-| Trimmed, Deduped, Uniq Bases | n/a | 29,883,917,490 | x | n/a |
-| Trimmed, Deduped, Uniq, no Mito Reads | x | 99,218,471 | x | x |
-| Trimmed, Deduped, Uniq, no Mito Bases | x | 29,881,323,271 | x | x |
+| Raw Reads | 313,465,270 | 226,692,460 | 223,358,676 | x |
+| Raw Bases | 94,666,511,540 | 68,461,122,920 | 67,454,320,152 | x |
+| Trimmed Reads | 280,454,045 | 207,677,745 | 194,228,811 | x |
+| Trimmed Bases | 81,520,790,896 | 62,423,641,430 | 58,364,280,836 | x |
+| Trimmed & Deduped Reads | 275,015,380 | 118,415,796 | 100,099,262 | x |
+| Trimmed & Deduped Bases | 79,988,291,387 | 35,530,415,027 | 30,047,301,234 | x |
+| Trimmed, Deduped, Uniq Reads | n/a | 99,227,071 | 80,727,818 | n/a |
+| Trimmed, Deduped, Uniq Bases | n/a | 29,883,917,490 | 24,309,217,299 | n/a |
+| Trimmed, Deduped, Uniq, no Mito Reads | x | 99,218,471 | 80,722,266 | x |
+| Trimmed, Deduped, Uniq, no Mito Bases | x | 29,881,323,271 | 24,307,543,327 | x |
 | Error-corrected Reads | --- | --- | --- | --- |
 | Error-corrected Bases | --- | --- | --- | --- |  
 
