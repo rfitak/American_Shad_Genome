@@ -327,7 +327,7 @@ _Summary of Results After Removing Mitochondrial Reads:_
 
 | Name | \# Paired Reads After | \# Bases After | Q20 bases After | Q30 Bases After |
 | --- | --- | --- | --- | --- |
-| PE500 | x | x  | x% | x% |
+| PE500 | 272,910,814 | 79,367,816,437  | 95.9% | 89.5% |
 | MP5k  | 99,218,471  | 29,881,323,271  | 92.3% | 82.8% |
 | MP10k | 80,722,266  | 24,307,542,327  | 91.8% | 81.9% |
 | __Total__ | x | x | x% | x% |
