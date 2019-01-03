@@ -358,7 +358,7 @@ musket \
    -p 12 \
    -omulti corrected \
    -inorder \
-   -zlib \
+   -zlib 1 \
    -lowercase \
    PE500_F.trimmed.uniq.noMito.fq.gz \
    PE500_R.trimmed.uniq.noMito.fq.gz \
