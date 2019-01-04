@@ -383,8 +383,8 @@ ____________________________
 | Trimmed & Deduped Bases | 79,988,291,387 | 35,530,415,027 | 30,047,301,234 | x |
 | Trimmed, Deduped, Uniq Reads | n/a | 99,227,071 | 80,727,818 | n/a |
 | Trimmed, Deduped, Uniq Bases | n/a | 29,883,917,490 | 24,309,217,299 | n/a |
-| Trimmed, Deduped, Uniq, no Mito Reads | x | 99,218,471 | 80,722,266 | x |
-| Trimmed, Deduped, Uniq, no Mito Bases | x | 29,881,323,271 | 24,307,543,327 | x |
+| Trimmed, Deduped, Uniq, no Mito Reads | 272,910,814 | 99,218,471 | 80,722,266 | x |
+| Trimmed, Deduped, Uniq, no Mito Bases | 79,367,816,437 | 29,881,323,271 | 24,307,543,327 | x |
 | Error-corrected Reads | --- | --- | --- | --- |
 | Error-corrected Bases | --- | --- | --- | --- |  
 
