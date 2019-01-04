@@ -330,7 +330,7 @@ _Summary of Results After Removing Mitochondrial Reads:_
 | PE500 | 272,910,814 | 79,367,816,437  | 95.9% | 89.5% |
 | MP5k  | 99,218,471  | 29,881,323,271  | 92.3% | 82.8% |
 | MP10k | 80,722,266  | 24,307,542,327  | 91.8% | 81.9% |
-| __Total__ | x | x | x% | x% |
+| __Total__ | 452,851,551 | 133,556,682,035 | 94.4% | 86.6% |
 
 For the MP5k and MP10k reads see [remove-mitoMP5k.sh](./Data/remove-mitoMP5k.sh) and [remove-mitoMP10k.sh](./Data/remove-mitoMP10k.sh) scripts.
 
@@ -383,8 +383,8 @@ ____________________________
 | Trimmed & Deduped Bases | 79,988,291,387 | 35,530,415,027 | 30,047,301,234 | 145,566,007,648 |
 | Trimmed, Deduped, Uniq Reads | n/a | 99,227,071 | 80,727,818 | n/a |
 | Trimmed, Deduped, Uniq Bases | n/a | 29,883,917,490 | 24,309,217,299 | n/a |
-| Trimmed, Deduped, Uniq, no Mito Reads | 272,910,814 | 99,218,471 | 80,722,266 | x |
-| Trimmed, Deduped, Uniq, no Mito Bases | 79,367,816,437 | 29,881,323,271 | 24,307,543,327 | x |
+| Trimmed, Deduped, Uniq, no Mito Reads | 272,910,814 | 99,218,471 | 80,722,266 | 452,851,551 |
+| Trimmed, Deduped, Uniq, no Mito Bases | 79,367,816,437 | 29,881,323,271 | 24,307,543,327 | 133,556,682,035 |
 | Error-corrected Bases | --- | --- | --- | --- |  
 
 
