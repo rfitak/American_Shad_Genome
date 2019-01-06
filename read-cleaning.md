@@ -385,7 +385,7 @@ ____________________________
 | Trimmed, Deduped, Uniq Bases | n/a | 29,883,917,490 | 24,309,217,299 | n/a |
 | Trimmed, Deduped, Uniq, no Mito Reads | 272,910,814 | 99,218,471 | 80,722,266 | 452,851,551 |
 | Trimmed, Deduped, Uniq, no Mito Bases | 79,367,816,437 | 29,881,323,271 | 24,307,543,327 | 133,556,682,035 |
-| Error-corrected Bases | --- | --- | --- | --- |  
+| Error-corrected Bases | 130,691,325 (0.165%) | 99,911,438 (0.334%) | 84,754,505 (0.349%) | 315,357,268 (0.236%) |  
 
 
 Note: use Pilon (Broad Github) for checking and improving assembly)
