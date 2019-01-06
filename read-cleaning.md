@@ -414,7 +414,7 @@ names(counts)=c(2:254)
 barplot(counts, log="y", col="blue", las = 1)
 ```
 
-![kmer plot](./images/kmer-plot.pdf)
+![kmer plot](./images/kmer-plot.png "Musket k-mer counts; k = 21")
 
 ____________________________
 ## Summary of Results
