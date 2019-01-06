@@ -366,6 +366,26 @@ musket \
    MP5k_R.trimmed.uniq.unj.noMito.fq.gz \
    MP10k_F.trimmed.uniq.unj.noMito.fq.gz \
    MP10k_R.trimmed.uniq.unj.noMito.fq.gz
+
+# Count corrected bases
+pe500=$(zcat PE500_F.trimmed.uniq.noMito.corrected.fq.gz PE500_R.trimmed.uniq.noMito.corrected.fq.gz | \
+   seqtk seq -l0 -A | \
+   grep -v "^>" | \
+   grep -oc "[atcg]")
+echo "Corrected $pe500 bases in PE500 reads"
+
+mp5k=$(zcat MP5k_F.trimmed.uniq.unj.noMito.corrected.fq.gz MP5k_R.trimmed.uniq.unj.noMito.corrected.fq.gz | \
+   seqtk seq -l0 -A | \
+   grep -v "^>" | \
+   grep -oc "[atcg]")
+echo "Corrected $mp5k bases in MP5k reads"
+
+mp10k=$(zcat MP10k_F.trimmed.uniq.unj.noMito.corrected.fq.gz MP10k_R.trimmed.uniq.unj.noMito.corrected.fq.gz | \
+   seqtk seq -l0 -A | \
+   grep -v "^>" | \
+   grep -oc "[atcg]")
+echo "Corrected $mp10k bases in MP10k reads"
+
 ```
 _Parameters Explained:_
 - --phred33 :: use phred33 offset for quality scores (standard for recent illumina data)
