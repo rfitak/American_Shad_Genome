@@ -83,7 +83,7 @@ export TMPDIR=/work/frr6
 
 # First, make a dry run to just print out the complete list of commands:
 abyss-pe \
-   k=75 \
+   k=97 \
    G=1300000000 \
    -n \
    v=-v \
