@@ -1,4 +1,10 @@
-# Assembly with Abyss 2.1.5
+# Assembling the Genome
+Prior to assembly, the first step is to select an appropriate _k_-mer length to use for the assembly.  Rather than running multiple assemblies at different vlaues for _k_, we will use KmerGenie.
+
+
+
+
+### Assembly with Abyss 2.1.5
 
 ```bash
 # Install google sparsehash
