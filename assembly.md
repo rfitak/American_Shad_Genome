@@ -54,8 +54,7 @@ xxxxx
 
 ## Step 2: Assembly with Abyss 2.1.5
 From the website:
-"ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads. The single-processor version is useful for assembling genomes up to 100 Mbases in size. The parallel version is implemented using MPI and is capable of assembling larger genomes."  I have used it previously to ssemble the dromedary and Florida panther genomes.  
-The publications can be found here:
+"ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads. The single-processor version is useful for assembling genomes up to 100 Mbases in size. The parallel version is implemented using MPI and is capable of assembling larger genomes."  I have used it previously to assemble the dromedary and Florida panther genomes. The publications can be found here:
 - Jackman SD, Vandervalk BP, Mohamadi H, Chu J, Yeo S, Hammond SA, Jahesh G, Khan H, Coombe L, Warren RL, and Birol I (2017) ABySS 2.0: resource-efficient assembly of large genomes using a Bloom filter. _Genome Research_ 27: 768-777. https://doi.org/10.1101/gr.214346.116
 - Simpson JT, Wong K, Jackman SD, Schein JE, Jones SJ, Birol I. (2009) ABySS: A parallel assembler for short read sequence data. _Genome Research_ 19: 1117-1123. https://doi.org/10.1101/gr.089532.108
 
