@@ -21,7 +21,7 @@ cd kmergenie-1.7051/
 make
 ```
 
-_Run kmergenie_  
+_Run KmerGenie_  
 Please see the script [kmergenie.sh](./Data/kmergenie.sh) for more details on Job information. According to KmerGenie, only reads used by the assembler, not those for scaffolding (i.e. mate pairs), should be used.
 ```bash
 # Make list of sequence files
