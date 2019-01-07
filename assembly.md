@@ -1,11 +1,11 @@
 # Assembling the Genome
 The steps to build the _de novo_ genome assembly include:
 1. Estimating the best _k_-mer length for the assembly
-  - Program: KmerGenie
+    - Program: [KmerGenie v1.7051](http://kmergenie.bx.psu.edu)
 2. Performing the assembly
-  - Program: Abyss v2.1.5
+    - Program: [Abyss v2.1.5](http://www.bcgsc.ca/platform/bioinfo/software/abyss)
 3. Assembly clean-up and checking
-  - Programs: xxx
+    - Programs: xxx
 
 ## Step 1:  Estimating _k_-mer length
 
