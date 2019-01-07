@@ -70,7 +70,10 @@ make install
 wget http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/2.1.5/abyss-2.1.5.tar.gz
 tar -zxvf abyss-2.1.5.tar.gz
 cd abyss-2.1.5/
-./configure --prefix=/dscrhome/frr6/bin/ --with-sparsehash=/dscrhome/frr6/bin
+./configure \
+   --prefix=/dscrhome/frr6/bin/ \
+   --with-sparsehash=/dscrhome/frr6/bin \
+   --with-mpi=/opt/apps/slurm/openmpi-2.0.0/
 make
 make install
 ```
