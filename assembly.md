@@ -79,5 +79,35 @@ make install
 _Run Abyss_  
 Please see the script [abyss.sh](./Data/abyss.sh) for more details on Job information.
 ```bash
-# xxxxx
+# Setup TMPDIR
+export TMPDIR=/work/frr6
+
+# First, make a dry run to just print out the complete list of commands:
+abyss-pe \
+   k=75 \
+   G=1300000000 \
+   -n \
+   v=-v \
+   name=Asap \
+   lib='PE500' \
+   mp='MP5k MP10k' \
+   PE500='PE500_F.trimmed.uniq.noMito.corrected.fq.gz PE500_R.trimmed.uniq.noMito.corrected.fq.gz' \
+   MP5k='MP5k_F.trimmed.uniq.unj.noMito.corrected.fq.gz MP5k_R.trimmed.uniq.unj.noMito.corrected.fq.gz' \
+   MP10k='MP10k_F.trimmed.uniq.unj.noMito.corrected.fq.gz MP10k_R.trimmed.uniq.unj.noMito.corrected.fq.gz'
+
 ```
+_Parameters Explained:_
+- k :: _k_-mer length for the assembly
+- G :: genome size estimate for NG50 (Taken from [genomesize.com](http://www.genomesize.com/result_species.php?id=2065))
+- -n :: print out the complete list of commands to run (dry run)
+- v=-v :: verbose output
+- name :: name of assembly
+- lib :: name of PE library
+- mp :: name(s) of mate-pair libraries
+- ... :: lists of the files in each library
+
+
+
+
+
+
