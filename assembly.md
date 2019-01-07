@@ -98,7 +98,9 @@ abyss-pe \
 ```
 _Parameters Explained:_
 - k :: _k_-mer length for the assembly
-- G :: genome size estimate for NG50 (Taken from [genomesize.com](http://www.genomesize.com/result_species.php?id=2065))
+- G :: genome size estimate for NG50, 1.3 pg (~1.5 Gb) for _A. sapidissima_
+    - Taken from [genomesize.com](http://www.genomesize.com/result_species.php?id=2065)
+    - Hinegardner R and Rosen DE (1972) Cellular DNA Content and the Evolution of Teleostean Fishes. _American Naturalist_ 106(951): 621-644. https://www.jstor.org/stable/2459724
 - -n :: print out the complete list of commands to run (dry run)
 - v=-v :: verbose output
 - name :: name of assembly
