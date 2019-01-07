@@ -22,27 +22,21 @@ make
 ```
 
 _Run kmergenie_  
-Please see the script [kmergenie.sh](./Data/kmergenie.sh) for more details on Job information.
+Please see the script [kmergenie.sh](./Data/kmergenie.sh) for more details on Job information. According to KmerGenie, only reads used by the assembler, not those for scaffolding (i.e. mate pairs), should be used.
 ```bash
 # Make list of sequence files
-ls /work/frr6/SHAD/MUSKET/*.fq.gz > reads.list
+ls /work/frr6/SHAD/MUSKET/PE500*.fq.gz > reads.list
 
 # Run kmergenie
 kmergenie \
    reads.list \
    --diploid \
-   -k 100 \
-   -l 45 \
-   -s 5 \
    -t 12 \
    -o kmer
 ```
 _Parameters Explained:_
 - reads.list :: file with list of reads files to include, one per line. (does/not recognize gzipped files)
 - --diploid :: diploid organism
-- -k :: maximum _k_-mer size
-- -l :: minimum _k_-mer size
-- -s :: step size
 - -t :: number of cpus to use
 - -o :: output file prefix
 
@@ -98,7 +92,7 @@ abyss-pe \
 ```
 _Parameters Explained:_
 - k :: _k_-mer length for the assembly
-- G :: genome size estimate for NG50, 1.3 pg (~1.5 Gb) for _A. sapidissima_
+- G :: genome size estimate for NG50, 1.3 pg (~1.3 Gb) for _A. sapidissima_
     - Taken from [genomesize.com](http://www.genomesize.com/result_species.php?id=2065)
     - Hinegardner R and Rosen DE (1972) Cellular DNA Content and the Evolution of Teleostean Fishes. _American Naturalist_ 106(951): 621-644. https://www.jstor.org/stable/2459724
 - -n :: print out the complete list of commands to run (dry run)
