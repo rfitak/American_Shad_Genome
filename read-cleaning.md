@@ -9,7 +9,7 @@ This section will start with the raw sequencing data and perform a series a clea
 4.  Removing reads that map conclusively to the American Shad mitochondrial genome
     - A mitgenome is already available, so we want to minimize their presence
 5.  Kmer counting and Error-correcting the sequencing reads
-    - Program: Undecided (Dsk, Quake, Musket, BFC...)
+    - Program: [musket v1.1](http://musket.sourceforge.net/homepage.htm)
 
 Sometimes the code below only shows the code for a single run, and runs may be repeated for different files. For reference to the amount of resources required, see the accompanying .sh scripts in the [Data](./Data) folder.
 
