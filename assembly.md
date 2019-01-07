@@ -41,10 +41,15 @@ _Parameters Explained:_
 - -o :: output file prefix
 
 _See the Output HTML/PDF Files:_
-- [xxxx](./Data/xxxxx.pdf)
+- [kmergenie_report](./Data/kmergenie_report.pdf)
 
 _Summary of Results:_
-xxxxx
+KmerGenie reported:
+1.  An estimated best ___k_=97__
+2.  An estimated genome size of __842,670,695 bp__
+3.  See the plot below:
+![KmerGenie plot](./Data/kmer2.dat.png)
+
 
 ## Step 2: Assembly with Abyss 2.1.5
 From the website:
