@@ -84,7 +84,7 @@ Please see the script [abyss.sh](./Data/abyss.sh) for more details on Job inform
 # Setup TMPDIR
 export TMPDIR=/work/frr6
 
-# First, make a dry run to just print out the complete list of commands:
+# This is a basic command for abyss:
 abyss-pe \
    k=97 \
    G=1300000000 \
