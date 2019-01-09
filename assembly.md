@@ -110,7 +110,19 @@ _Parameters Explained:_
 - mp :: name(s) of mate-pair libraries
 - ... :: lists of the files in each library
 
+_Summary of Abyss Assemblies at Various Parameters:_  
 
+| Parameter | Abyss1 | Abyss2 | Abyss3 | Abyss4 |
+| --- | --- | --- | --- | --- |
+| k | 97 | 97 | 97 | xxx |
+| G | 1300000000 | 1300000000 | 900000000 | 1300000000 |
+| s | 1000 | 1000 | 1000 | 1000 |
+| c | sqrt(median) | sqrt(median) | 2 | sqrt(median) |
+| n:500 | 250,927 | xxx | 267,319 | xxx |
+| L50 | 35,128 | xxx | 37,850 | xxx |
+| N50 | 5,839 | xxx | 5,190 | xxx |
+| Longest | 82,529 | xxx | 82,529 | xxx |
+| Total Size | 676.5 Mb | xxx | 665.7 Mb | xxx |
 
 
 
