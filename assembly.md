@@ -145,15 +145,23 @@ make
 _Run Platanus:_
 Please see the script [platanus.sh](./Data/platanus.sh) for more details on Job information.
 ```bash
+# Make uncompressed reads files
+zcat PE500_F.trimmed.uniq.noMito.corrected.fq.gz > F.fq
+zcat PE500_R.trimmed.uniq.noMito.corrected.fq.gz > R.fq
+
+# Run platanus
 platanus \
    assemble \
    -o Asap1 \
-   -f /work/frr6/SHAD/MUSKET/PE500_[FR].trimmed.uniq.noMito.corrected.fq.gz \
+   -f [FR].fq \
    -t 16 \
    -m 200
+
+# Remove read files
+rm F.fq R.fq
 ```
 _Parameters Explained:_
 - -o :: name prefix for output files
-- -f :: read files
+- -f :: read files *__DOES NOT READ GZIPPED FILES!__*
 - -t :: number of threads
 - -m :: memory to use
