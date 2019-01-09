@@ -142,6 +142,7 @@ make
 # Or download pre-built binary directly from http://platanus.bio.titech.ac.jp/platanus-assembler/platanus-1-2-4
 ```
 _Run Platanus:_
+Please see the script [platanus.sh](./Data/platanus.sh) for more details on Job information.
 ```bash
 platanus \
    assemble \
@@ -150,3 +151,8 @@ platanus \
    -t 16 \
    -m 200
 ```
+_Parameters Explained:_
+- -o :: name prefix for output files
+- -f :: read files
+- -t :: number of threads
+- -m :: memory to use
