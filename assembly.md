@@ -80,24 +80,25 @@ make install
 ```
 
 _Run Abyss_  
-Please see the script [abyss.sh](./Data/abyss.sh) for more details on Job information.
+Please see the script [abyss.sh](./Data/abyss.sh) for more details on Job information.  Abyss was run by varying several parameters found in the file [parameters](./Data/parameters).
 ```bash
 # Setup TMPDIR
 export TMPDIR=/work/frr6
 
 # This is a basic command for abyss:
 abyss-pe \
-   k=97 \
+   k=${k} \
    G=1300000000 \
-   -n \
+   S=${S} \
+   s=${s} \
+   np=12 \
    v=-v \
-   name=Asap \
+   name=Asap${n} \
    lib='PE500' \
    mp='MP5k MP10k' \
-   PE500='PE500_F.trimmed.uniq.noMito.corrected.fq.gz PE500_R.trimmed.uniq.noMito.corrected.fq.gz' \
-   MP5k='MP5k_F.trimmed.uniq.unj.noMito.corrected.fq.gz MP5k_R.trimmed.uniq.unj.noMito.corrected.fq.gz' \
-   MP10k='MP10k_F.trimmed.uniq.unj.noMito.corrected.fq.gz MP10k_R.trimmed.uniq.unj.noMito.corrected.fq.gz'
-
+   PE500='/work/frr6/SHAD/MUSKET/PE500_F.trimmed.uniq.noMito.corrected.fq.gz /work/frr6/SHAD/MUSKET/PE500_R.trimmed.uniq.noMito.corrected.fq.gz' \
+   MP5k='/work/frr6/SHAD/MUSKET/MP5k_F.trimmed.uniq.unj.noMito.corrected.fq.gz /work/frr6/SHAD/MUSKET/MP5k_R.trimmed.uniq.unj.noMito.corrected.fq.gz' \
+   MP10k='/work/frr6/SHAD/MUSKET/MP10k_F.trimmed.uniq.unj.noMito.corrected.fq.gz /work/frr6/SHAD/MUSKET/MP10k_R.trimmed.uniq.unj.noMito.corrected.fq.gz'
 ```
 _Parameters Explained:_
 - k :: _k_-mer length for the assembly
