@@ -4,6 +4,7 @@ The steps to build the _de novo_ genome assembly include:
     - Program: [KmerGenie v1.7051](http://kmergenie.bx.psu.edu)
 2. Performing the assembly
     - Program: [Abyss v2.1.5](http://www.bcgsc.ca/platform/bioinfo/software/abyss)
+    - Program: [Platanus v1.2.4](http://platanus.bio.titech.ac.jp/platanus-assembler/platanus-1-2-4)
 3. Assembly clean-up and checking
     - Programs: xxx
 
@@ -51,7 +52,7 @@ KmerGenie reported:
 ![KmerGenie plot](./images/kmer2.dat.png)
 
 
-## Step 2: Assembly with Abyss 2.1.5
+## Step 2a: Assembly with Abyss 2.1.5
 From the website:
 "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads. The single-processor version is useful for assembling genomes up to 100 Mbases in size. The parallel version is implemented using MPI and is capable of assembling larger genomes."  I have used it previously to assemble the dromedary and Florida panther genomes. The publications can be found here:
 - Jackman SD, Vandervalk BP, Mohamadi H, Chu J, Yeo S, Hammond SA, Jahesh G, Khan H, Coombe L, Warren RL, and Birol I (2017) ABySS 2.0: resource-efficient assembly of large genomes using a Bloom filter. _Genome Research_ 27: 768-777. https://doi.org/10.1101/gr.214346.116
@@ -124,6 +125,28 @@ _Summary of Abyss Assemblies at Various Parameters:_
 | Longest | 82,529 | xxx | 82,529 | xxx |
 | Total Size | 676.5 Mb | xxx | 665.7 Mb | xxx |
 
+## Step 2b: Assembly with Platanus v1.2.4
+Platanus is another assembler built specifically to assemble genomes from high coverage data.  You can perform all the necessary read trimming/cleaning using platanus_trim, but we have already conservatively trimmed our dataset.  From the website:
+- Compared with other major assemblers, Platanus assembler was designed to provide good results when using higher coverage data. The optimal coverage depth for Platanus is approximately >80. In some procedures, Platanus attempts to assemble each haplotype sequence separately. In other words, Platanus requires twice as high coverage sequences as other assemblers. This is the main reason why Platanus requires high coverage. You can find more details on Supplemental Materials page 68–74 of our Genome Research publication.
+- To get good statistical results, mate-pair library sequences are indispensable. We received many claims and questions of poor assembling results. However, in almost all cases, only paired-end sequences were inputted. Except in the case of assembling very simple and small size genomes, it is impossible to get good results without using a mate-pair library.
+- The publication can be found here:
+    - Kajitani R, Toshimoto K, Noguchi H, Toyoda A, Ogura Y, Okuno M, Yabana M, Harada M, Nagayasu E, Maruyama H, Kohara Y, Fujiyama A, Hayashi T, and Itoh T (2014) Efficient _de novo_ assembly of highly heterozygous genomes from whole-genome shotgun short reads. _Genome Research_ 24(8):1384-1395. https://doi.org/10.1101/gr.170720.113
 
+_Installation:_
+```bash
+wget http://platanus.bio.titech.ac.jp/?ddownload=150
+tar -zxvf Platanus_v1.2.4.tar.gz
+cd Platanus_v1.2.4
+make
 
-
+# Or download pre-built binary directly from http://platanus.bio.titech.ac.jp/platanus-assembler/platanus-1-2-4
+```
+_Run Platanus:_
+```bash
+platanus \
+   assemble \
+   -o Asap1 \
+   -f /work/frr6/SHAD/MUSKET/PE500_[FR].trimmed.uniq.noMito.corrected.fq.gz \
+   -t 16 \
+   -m 200
+```
