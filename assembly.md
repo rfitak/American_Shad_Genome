@@ -127,17 +127,6 @@ _Summary of Abyss Assemblies at Various Parameters:_
 | Longest | 82,529 | 82,529 | 94,534 | 82,529 | 82,529 | 51,495 | 52,621 | 51,485 | 52,620 | xxx | xxx | xxx | xxx |
 | Total Size |  676.5 Mb | 665.7 Mb | 972.3 Mb | 696.3 Mb | 676.5 Mb | 508.2 Mb | 572.2 Mb | 559.8 Mb | 643.5 Mb | xxx | xxx | xxx | xxx |
 
-| Parameter | Abyss1 | Abyss2 | Abyss3 | Abyss4 |
-| --- | --- | --- | --- | --- |
-| k | 97 | 97 | 97 | xxx |
-| G | 1300000000 | 1300000000 | 900000000 | 1300000000 |
-| s | 1000 | 1000 | 1000 | 1000 |
-| c | sqrt(median) | sqrt(median) | 2 | sqrt(median) |
-| n:500 | 250,927 | xxx | 267,319 | xxx |
-| L50 | 35,128 | xxx | 37,850 | xxx |
-| N50 | 5,839 | xxx | 5,190 | xxx |
-| Longest | 82,529 | xxx | 82,529 | xxx |
-| Total Size | 676.5 Mb | xxx | 665.7 Mb | xxx |
 
 ## Step 2b: Assembly with Platanus v1.2.4
 Platanus is another assembler built specifically to assemble genomes from high coverage data.  You can perform all the necessary read trimming/cleaning using platanus_trim, but we have already conservatively trimmed our dataset.  From the website:
