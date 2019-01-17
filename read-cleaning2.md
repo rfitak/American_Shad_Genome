@@ -115,7 +115,7 @@ cd pear-src-0.9.11
 make
 ```
 
-_Run Pear_
+_Run Pear_  
 An example run is shown below.  **_NOTE:_** We have to process both the PE500 reads and the PE reads produced from NxTrim above.  Please see the script [pear.sh](./Data/pear.sh) for more details on Job information.
 ```bash
 # Merge PE reads produced from NxTrim
