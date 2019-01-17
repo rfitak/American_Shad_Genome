@@ -35,7 +35,7 @@ _See the Output HTML/PDF Files from ```fastp``` below:_
 
 
 ## Step 1:  Separate the MP reads into MP and PE reads
-Here the new software [NxTrim v0.4.3-6eb8d5e](https://github.com/sequencing/NxTrim) was used to separate the MP reads. NxTrim removes the Nextera Mate Pair junction adapters and categorizes reads according to the orientation implied by the adapter location. The publication can be found here:  
+Here the software [NxTrim v0.4.3-6eb8d5e](https://github.com/sequencing/NxTrim) was used to separate the MP reads. NxTrim removes the Nextera Mate Pair junction adapters and categorizes reads according to the orientation implied by the adapter location. The publication can be found here:  
 O’Connell J, Schulz-Trieglaff O, Carlson E, Hims MH, Gormley NA, Cox AJ. (2015) NxTrim: optimized trimming of Illumina mate pair reads. _Bioinformatics_ 31(12):2035–2037. https://doi.org/10.1093/bioinformatics/btv057
 
 _Installation:_
@@ -98,6 +98,75 @@ Trimming summary:
 6449396 / 222341866	( 2.90% )	were single end reads
 11670353 / 222341866	( 5.25% )	extra single end reads were generated from overhangs
 ```
+
+## Step 2:  Process PE overlaps
+The software [pear v0.9.11](http://www.exelixis-lab.org/web/software/pear) was used to merge paired-end reads. The resulting longer reads are SE but can significantly improve genome assemblies. The publication can be found here:  
+Zhang J, Kobert K, Flouri T, Stamatakis A (2014) PEAR: a fast and accurate Illumina Paired-End reAd mergeR. _Bioinformatics_ 30(5):614-20. https://doi.org/10.1093/bioinformatics/btt593
+
+_Installation:_
+```bash
+# Downloaded from http://www.exelixis-lab.org/web/software/pear
+gunzip pear-src-0.9.11.tar.gz
+tar -xvf pear-src-0.9.11.tar
+cd pear-src-0.9.11
+./configure PREFIX=/dscrhome/frr6/bin/
+make
+```
+
+_Run Pear_
+An example run is shown below.  **_NOTE:_** We have to process both the PE500 reads and the PE reads produced from NxTrim above.  Please see the script [pear.sh](./Data/pear.sh) for more details on Job information.
+```bash
+# Merge PE reads produced from NxTrim
+zcat \
+   MP5k_R1.pe.fastq.gz \
+   MP10k_R1.pe.fastq.gz \
+   | gzip > PE_mp.F.fq.gz
+zcat \
+   MP5k_R2.pe.fastq.gz \
+   MP10k_R2.pe.fastq.gz \
+   | gzip > PE_mp.R.fq.gz
+
+# Set file names
+fwd1="gDNA_S18_L002_R1_001.fastq.gz"
+rev1="gDNA_S18_L002_R2_001.fastq.gz"
+fwd2="PE_mp.F.fq.gz"
+rev2="PE_mp.R.fq.gz"
+
+# PE500 reads
+pear \
+   -o PE500.pear \
+   -f ${fwd1} \
+   -r ${rev1} \
+   -j 12 \
+   -k
+
+# From the MP reads
+pear \
+   -o PE_mp.pear \
+   -f ${fwd2} \
+   -r ${rev2} \
+   -j 12 \
+   -k
+
+# Compress reads
+gzip PE500.pear.assembled.fastq
+gzip PE500.pear.discarded.fastq
+gzip PE500.pear.unassembled.forward.fastq
+gzip PE500.pear.unassembled.reverse.fastq
+gzip PE_mp.pear.assembled.fastq
+gzip PE_mp.pear.discarded.fastq
+gzip PE_mp.pear.unassembled.forward.fastq
+gzip PE_mp.pear.unassembled.reverse.fastq
+```
+
+_Parameters Explained:_
+- -o :: output prefix, **does not gzip**
+- -f/r :: input forward and reverse read files, recognizes gzip
+- -j :: number of threads to use
+- -k :: do not reverse-complement the reverse reads in the output file
+
+### Output Summary
+
 
 
 
