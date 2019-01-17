@@ -45,7 +45,7 @@ git clone https://github.com/sequencing/NxTrim.git
 cd NxTrim
 make
 ```
-_Run NxTrim_
+_Run NxTrim_  
 An example run is shown below for the 5-7kb insert library, please see the scripts [nxtrim_MP5k.sh](./Data/nxtrim_MP5k.sh), [nxtrim_MP10k.sh](./Data/nxtrim_MP10k.sh), for more details on Job information.
 ```bash
 # Assign read file names
@@ -71,8 +71,8 @@ _Parameters Explained:_
 - -a :: more aggressive adapter search (see docs/adapter.md)
 - -l :: minimum length cutoff
 
-_Output Summary_
-### MP5k Reads
+### Output Summary
+_MP5k Reads_
 ```
 Trimming summary:
 226692460 / 226692460	( 100.00% )	reads passed chastity/purity filters.
@@ -85,7 +85,7 @@ Trimming summary:
 5198244 / 225706566	( 2.30% )	were single end reads
 12147103 / 225706566	( 5.38% )	extra single end reads were generated from overhangs
 ```
-### MP10k Reads
+_MP10k Reads_
 ```
 Trimming summary:
 223358676 / 223358676	( 100.00% )	reads passed chastity/purity filters.
