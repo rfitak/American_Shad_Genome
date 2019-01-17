@@ -2,7 +2,7 @@
 This section will start with the raw sequencing data and perform a series a cleaning steps to prepare the sequences for the genome assembly.  The various steps include:
 1.  Process mate-pair (MP) reads, separating into proper MP and paired-end (PE) reads
     - Program: [NxTrim](https://github.com/sequencing/NxTrim)
-2.  Process PE reads into overlapping single-end (SE)reads
+2.  Process PE reads into overlapping single-end (SE) reads
     - Program: [pear](http://www.exelixis-lab.org/web/software/pear)   
     - Alternatively, one can use [flash](https://ccb.jhu.edu/software/FLASH/)
 3.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
