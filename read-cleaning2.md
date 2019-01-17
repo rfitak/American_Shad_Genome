@@ -167,16 +167,16 @@ _Parameters Explained:_
 
 ### Output Summary
 
+x  
+x  
+x  
+x  
+x  
+x  
+x  
+x  
 
-
-
-
-
-
-
-
-
-## Step 1:  Read trimming and filtering
+## Step 3:  Read trimming and filtering
 Here the new software [fastp v0.19.6](https://github.com/OpenGene/fastp) was used to trim the PE reads. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
 Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 
@@ -246,7 +246,7 @@ _See the Output HTML/PDF Files:_
 - [MP5k](./Data/MP5k.pdf)
 - [MP10k](./Data/MP10k.pdf)
 
-_Summary of Results After Cleaning:_  
+_Final Summary of Cleaning:_  
 
 | Name | \# Paired Reads | \# Bases | Q20 bases | Q30 Bases |
 | --- | --- | --- | --- | --- |
