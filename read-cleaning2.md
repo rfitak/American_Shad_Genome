@@ -4,6 +4,7 @@ This section will start with the raw sequencing data and perform a series a clea
     - Program: [NxTrim](https://github.com/sequencing/NxTrim)
 2.  Process PE reads into overlapping single-end (SE)reads
     - Program: [pear](http://www.exelixis-lab.org/web/software/pear)   
+    - Alternatively, one can use [flash](https://ccb.jhu.edu/software/FLASH/)
 3.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
     - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads 
 2.  Removing identical read pairs
@@ -101,7 +102,8 @@ Trimming summary:
 
 ## Step 2:  Process PE overlaps
 The software [pear v0.9.11](http://www.exelixis-lab.org/web/software/pear) was used to merge paired-end reads. The resulting longer reads are SE but can significantly improve genome assemblies. The publication can be found here:  
-Zhang J, Kobert K, Flouri T, Stamatakis A (2014) PEAR: a fast and accurate Illumina Paired-End reAd mergeR. _Bioinformatics_ 30(5):614-20. https://doi.org/10.1093/bioinformatics/btt593
+Zhang J, Kobert K, Flouri T, Stamatakis A (2014) PEAR: a fast and accurate Illumina Paired-End reAd mergeR. _Bioinformatics_ 30(5):614-20. https://doi.org/10.1093/bioinformatics/btt593  
+Alternatively, but not shown below, I tried running [flash v1.2.11](https://ccb.jhu.edu/software/FLASH/), but I liked pear much better.  You can see the script [flash.sh](./Data/flash.sh) if this is of interest.
 
 _Installation:_
 ```bash
