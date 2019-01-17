@@ -3,7 +3,7 @@ This section will start with the raw sequencing data and perform a series a clea
 1.  Process mate-pair (MP) reads, separating into proper MP and paired-end (PE) reads
     - Program: [NxTrim](https://github.com/sequencing/NxTrim)
 2.  Process PE reads into overlapping single-end (SE)reads
-    - Program: [FLASH](https://ccb.jhu.edu/software/FLASH/)   
+    - Program: [pear](http://www.exelixis-lab.org/web/software/pear)   
 3.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
     - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads 
 2.  Removing identical read pairs
