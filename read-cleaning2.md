@@ -2,17 +2,16 @@
 This section will start with the raw sequencing data and perform a series a cleaning steps to prepare the sequences for the genome assembly.  The various steps include:
 1.  Process mate-pair (MP) reads, separating into proper MP and paired-end (PE) reads
     - Program: [NxTrim](https://github.com/sequencing/NxTrim)
-2.  Process PE reads into overlapping single-end (SE) reads
+2.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
+    - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads   
+3.  Process PE reads into overlapping single-end (SE) reads
     - Program: [pear](http://www.exelixis-lab.org/web/software/pear)   
     - Alternatively, one can use [flash](https://ccb.jhu.edu/software/FLASH/)
-3.  Filtering low-quality reads, Trimming low-quality bases, adapter identification and removal
-    - Program: [fastp](https://github.com/OpenGene/fastp) for paired-end reads 
-2.  Removing identical read pairs
+4.  Removing identical read pairs
     - Program: [fastuniq](https://sourceforge.net/projects/fastuniq/)
     
 ```    
-3.  Removing Mate-pair reads that overlap
-    - Program: [fastq-join](https://github.com/brwnj/fastq-join)
+
 4.  Removing reads that map conclusively to the American Shad mitochondrial genome
     - A mitgenome is already available, so we want to minimize their presence
 5.  Kmer counting and Error-correcting the sequencing reads
@@ -28,11 +27,6 @@ Sometimes the code below only shows the code for a single run, and runs may be r
 | MP5k | 151 bp; Mate-pair | 5-7 kb | 226,692,460 | 68,461,122,920 | 93.1% | 85.3% |
 | MP10k | 151 bp; Mate-pair | 10-12 kb | 223,358,676 | 67,454,320,152 | 92.8% | 85.0% |
 | __Total__ | n/a | n/a | 763,516,406 | 230,581,954,612 | 93.0% | 85.5% |
-
-_See the Output HTML/PDF Files from ```fastp``` below:_
-- [PE500](./Data/PE500.pdf)
-- [MP5k](./Data/MP5k.pdf)
-- [MP10k](./Data/MP10k.pdf)
 
 
 ## Step 1:  Separate the MP reads into MP and PE reads
@@ -100,7 +94,86 @@ Trimming summary:
 11670353 / 222341866	( 5.25% )	extra single end reads were generated from overhangs
 ```
 
-## Step 2:  Process PE overlaps
+## Step 2:  Read trimming and filtering
+Here the new software [fastp v0.19.6](https://github.com/OpenGene/fastp) was used to trim all (PE, MP, SE) reads. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
+Chen S, Zhou Y, Chen Y, Gu (2018) fastp: an ultra-fast all-in-one FASTQ preprocessor. _Bioinformatics_ 34(17):i884–i890. https://doi.org/10.1093/bioinformatics/bty560
+
+_Installation:_
+```bash
+# Install fastp using git
+git clone https://github.com/OpenGene/fastp.git
+cd fastp
+make
+```
+
+_Run fastp_  
+An example run is shown below, please see the scripts [fastp_PE500.sh](./Data/fastp_PE500.sh), [fastp_MP5k.sh](fastp_MP5k.sh), and [fastp_MP10k.sh](./Data/fastp_MP10k.sh) for more details on Job information.
+```bash
+# Assign names to each forward and reverse sequence reads file
+fwd1="gDNA_S18_L002_R1_001.fastq.gz"
+rev1="gDNA_S18_L002_R2_001.fastq.gz"
+name1="PE500"
+
+# Trim PE reads
+echo "Trimming the PE reads"
+fastp \
+   -i ${fwd1} \
+   -I ${rev1} \
+   -o ${name1}_F.trimmed.fq.gz \
+   -O ${name1}_R.trimmed.fq.gz \
+   --detect_adapter_for_pe \
+   --cut_front \
+   --cut_tail \
+   --cut_window_size=4 \
+   --cut_mean_quality=20 \
+   --qualified_quality_phred=20 \
+   --unqualified_percent_limit=30 \
+   --n_base_limit=5 \
+   --length_required=50 \
+   --low_complexity_filter \
+   --complexity_threshold=30 \
+   --overrepresentation_analysis \
+   --json=${name1}.json \
+   --html=${name1}.html \
+   --report_title="$name1" \
+   --thread=8
+```
+_Parameters Explained:_
+- -i/-I :: input forward and reverse read files, recognizes gzip
+- -o/-O :: output forward and reverse read files, recognizes gzip
+- --detect_adapter_for_pe :: enable PE adapter trimming
+- --cut_front :: enable a 5' sliding window trimmer, like trimmomatic
+- --cut_tail :: enable a 3' sliding window trimmer, like trimmomatic
+- --cut_window_size=4 :: window size for the trimming
+- --cut_mean_quality=20 :: mean base score across the window required, or else trim the last base
+- --qualified_quality_phred=20 :: minimum base quality score to keep
+- --unqualified_percent_limit=30 :: Percent of bases allowed to be less than q in a read
+- --n_base_limit=5 :: if one read's number of N bases is >5, then this read pair is discarded
+- --length_required=50 :: minimum read length to keep after trimming
+- --low_complexity_filter :: filter sequences with a low complexity
+- --complexity_threshold=30 :: threshold for sequence complexity filter
+- --overrepresentation_analysis :: look for overrepresented sequences, like adapters
+- --json=${name1}.json :: output file name, JSON format
+- --html=${name1}.html :: output file name, HTML format
+- --report_title="$name1" :: output report tile
+- --thread=8 :: number of cpus to use
+*__Note:  these parameters were enabled by default__*
+- --trim_poly_g :: removes poly G tails for NovaSeq reads
+- --poly_g_min_len=10 :: minimum length for poly G removal
+
+_See the Output HTML/PDF Files from ```fastp``` below:_
+- [PE500](./Data/PE500.pdf)
+- [MP5k](./Data/MP5k.pdf)
+- [MP5k_unk](./Data/MP5k_unk.pdf)
+- [MP5k_pe](./Data/MP5k_pe.pdf)
+- [MP5k_se](./Data/MP5k_se.pdf)
+- [MP10k](./Data/MP10k.pdf)
+- [MP10k_unk](./Data/MP10k_unk.pdf)
+- [MP10k_pe](./Data/MP10k_pe.pdf)
+- [MP10k_se](./Data/MP10k_se.pdf)
+
+
+## Step 3:  Process PE overlaps
 The software [pear v0.9.11](http://www.exelixis-lab.org/web/software/pear) was used to merge paired-end reads. The resulting longer reads are SE but can significantly improve genome assemblies. The publication can be found here:  
 Zhang J, Kobert K, Flouri T, Stamatakis A (2014) PEAR: a fast and accurate Illumina Paired-End reAd mergeR. _Bioinformatics_ 30(5):614-20. https://doi.org/10.1093/bioinformatics/btt593  
 Alternatively, but not shown below, I tried running [flash v1.2.11](https://ccb.jhu.edu/software/FLASH/), but I liked pear much better.  You can see the script [flash.sh](./Data/flash.sh) if this is of interest.
@@ -178,75 +251,7 @@ x
 x  
 x  
 
-## Step 3:  Read trimming and filtering
-Here the new software [fastp v0.19.6](https://github.com/OpenGene/fastp) was used to trim the PE reads. It combines a QC (Similar to FastQC) along with various trimming and filtering functions. The publication can be found here:  
-Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 
-_Installation:_
-```bash
-# Install fastp using git
-git clone https://github.com/OpenGene/fastp.git
-cd fastp
-make
-```
-
-_Run fastp_  
-An example run is shown below, please see the scripts [trimPE500.sh](./Data/trimPE500.sh), [trimMP5k.sh](./Data/trimMP5k.sh), and [trimMP10k.sh](./Data/trimMP10k.sh) for more details on Job information.
-```bash
-# Assign names to each forward and reverse sequence reads file
-fwd="gDNA_S18_L002_R1_001.fastq.gz"
-rev="gDNA_S18_L002_R2_001.fastq.gz"
-name="PE500"
-
-# Run fastp
-fastp \
-   -i ../RAW_READS/${fwd} \
-   -I ../RAW_READS/${rev} \
-   -o ${name}_F.trimmed.fq.gz \
-   -O ${name}_R.trimmed.fq.gz \
-   -n 5 \
-   -q 20 \
-   -u 30 \
-   --length_required=70 \
-   --low_complexity_filter \
-   --complexity_threshold=20 \
-   --cut_by_quality3 \
-   --cut_by_quality5 \
-   --cut_window_size=4 \
-   --cut_mean_quality=20 \
-   --trim_poly_g \
-   --poly_g_min_len=10 \
-   --overrepresentation_analysis \
-   --json=${name}.json \
-   --html=${name}.html \
-   --report_title="$name" \
-   --thread=8
-```
-_Parameters Explained:_
-- -i/-I :: input forward and reverse read files, recognizes gzip
-- -o/-O :: output forward and reverse read files, recognizes gzip
-- -n 5 :: if one read's number of N bases is >5, then this read pair is discarded
-- -q 20 :: minimum base quality score to keep
-- -u 30 :: Percent of bases allowed to be less than q in a read
-- --length_required=70 :: minimum read length to keep after trimming
-- --low_complexity_filter :: filter sequences with a low complexity
-- --complexity_threshold=20 :: threshold for sequence complexity filter
-- --cut_by_quality3 :: use a 3' sliding window trimmer, like trimmomatic
-- --cut_by_quality5 :: use a 5' sliding window trimmer, like trimmomatic
-- --cut_window_size=4 :: window size for the trimming
-- --cut_mean_quality=20 :: mean base score across the window required, or else trim the last base
-- --trim_poly_g :: removes poly G tails for NovaSeq reads
-- --poly_g_min_len=10 :: minimum length for poly G removal
-- --overrepresentation_analysis :: look for overrepresented sequences, like adapters
-- --json=${name}.json :: output file name, JSON format
-- --html=${name}.html :: output file name, HTML format
-- --report_title="$name" :: output report tile
-- --thread=8 :: number of cpus to use
-
-_See the Output HTML/PDF Files:_
-- [PE500](./Data/PE500.pdf)
-- [MP5k](./Data/MP5k.pdf)
-- [MP10k](./Data/MP10k.pdf)
 
 _Final Summary of Cleaning:_  
 
