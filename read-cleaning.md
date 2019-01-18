@@ -603,49 +603,58 @@ make
 ```
 
 _Run Pear_  
-An example run is shown below.  **_NOTE:_** We have to process both the PE500 reads and the PE reads produced from NxTrim above.  Please see the script [pear.sh](./Data/pear.sh) for more details on Job information.
+An example run is shown below.  **_NOTE:_** We have to process both the cleaned PE500 reads and the cleaned PE reads produced from NxTrim above.  Please see the script [pear.sh](./Data/pear.sh) for more details on Job information.
 ```bash
-# Merge PE reads produced from NxTrim
-zcat \
-   MP5k_R1.pe.fastq.gz \
-   MP10k_R1.pe.fastq.gz \
-   | gzip > PE_mp.F.fq.gz
-zcat \
-   MP5k_R2.pe.fastq.gz \
-   MP10k_R2.pe.fastq.gz \
-   | gzip > PE_mp.R.fq.gz
-
 # Set file names
-fwd1="gDNA_S18_L002_R1_001.fastq.gz"
-rev1="gDNA_S18_L002_R2_001.fastq.gz"
-fwd2="PE_mp.F.fq.gz"
-rev2="PE_mp.R.fq.gz"
+pe500f="PE500_F.trimmed.fq.gz"
+pe500r="PE500_R.trimmed.fq.gz"
+mp5kf="MP5k_pe_F.trimmed.fq.gz"
+mp5kr="MP5k_pe_R.trimmed.fq.gz"
+mp10kf="MP10k_pe_F.trimmed.fq.gz"
+mp10kr="MP10k_pe_R.trimmed.fq.gz"
 
 # PE500 reads
 pear \
-   -o PE500.pear \
-   -f ${fwd1} \
-   -r ${rev1} \
-   -j 12 \
+   -o PE500.trimmed.pear \
+   -f ${pe500f} \
+   -r ${pe500r} \
+   -j 16 \
    -k
 
-# From the MP reads
+# From the MP5k reads
 pear \
-   -o PE_mp.pear \
-   -f ${fwd2} \
-   -r ${rev2} \
-   -j 12 \
+   -o MP5k_pe.trimmed.pear \
+   -f ${mp5kf} \
+   -r ${mp5kr} \
+   -j 16 \
+   -k
+
+# From the MP10k reads
+pear \
+   -o MP10k_pe.trimmed.pear \
+   -f ${mp10kf} \
+   -r ${mp10kr} \
+   -j 16 \
    -k
 
 # Compress reads
-gzip PE500.pear.assembled.fastq
-gzip PE500.pear.discarded.fastq
-gzip PE500.pear.unassembled.forward.fastq
-gzip PE500.pear.unassembled.reverse.fastq
-gzip PE_mp.pear.assembled.fastq
-gzip PE_mp.pear.discarded.fastq
-gzip PE_mp.pear.unassembled.forward.fastq
-gzip PE_mp.pear.unassembled.reverse.fastq
+gzip PE500.trimmed.pear.assembled.fastq; mv PE500.trimmed.pear.assembled.fastq.gz PE500_se.trimmed.pear.fq.gz
+gzip PE500.trimmed.pear.discarded.fastq
+gzip PE500.trimmed.pear.unassembled.forward.fastq; mv PE500.trimmed.pear.unassembled.forward.fastq.gz PE500_F.trimmed.pear.fq.gz
+gzip PE500.trimmed.pear.unassembled.reverse.fastq; mv PE500.trimmed.pear.unassembled.reverse.fastq.gz PE500_R.trimmed.pear.fq.gz
+echo "Finished compressing PE500 reads"
+
+gzip MP5k_pe.trimmed.pear.assembled.fastq; mv MP5k_pe.trimmed.pear.assembled.fastq.gz MP5k_pe_se.trimmed.pear.fq.gz
+gzip MP5k_pe.trimmed.pear.discarded.fastq
+gzip MP5k_pe.trimmed.pear.unassembled.forward.fastq; mv MP5k_pe.trimmed.pear.unassembled.forward.fastq.gz MP5k_pe_F.trimmed.pear.fq.gz
+gzip MP5k_pe.trimmed.pear.unassembled.reverse.fastq; mv MP5k_pe.trimmed.pear.unassembled.reverse.fastq.gz MP5k_pe_R.trimmed.pear.fq.gz
+echo "Finished compressing MP5k PE reads"
+
+gzip MP10k_pe.trimmed.pear.assembled.fastq; mv MP10k_pe.trimmed.pear.assembled.fastq.gz MP10k_pe_se.trimmed.pear.fq.gz
+gzip MP10k_pe.trimmed.pear.discarded.fastq
+gzip MP10k_pe.trimmed.pear.unassembled.forward.fastq; mv MP10k_pe.trimmed.pear.unassembled.forward.fastq.gz MP10k_pe_F.trimmed.pear.fq.gz
+gzip MP10k_pe.trimmed.pear.unassembled.reverse.fastq; mv MP10k_pe.trimmed.pear.unassembled.reverse.fastq.gz MP10k_pe_R.trimmed.pear.fq.gz
+echo "Finished compressing MP10k PE reads"
 ```
 
 _Parameters Explained:_
