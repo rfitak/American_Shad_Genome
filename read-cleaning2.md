@@ -172,6 +172,420 @@ _See the Output HTML/PDF Files from ```fastp``` below:_
 - [MP10k_pe](./Data/MP10k_pe.pdf)
 - [MP10k_se](./Data/MP10k_se.pdf)
 
+### Output Summary
+_PE500 Reads_
+```
+Detecting adapter sequence for read1...
+Illumina TruSeq Adapter Read 1: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+
+Detecting adapter sequence for read2...
+Illumina TruSeq Adapter Read 2: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+
+Read1 before filtering:
+total reads: 313465270
+total bases: 47333255770
+Q20 bases: 44459515886(93.9287%)
+Q30 bases: 41161938102(86.962%)
+
+Read1 after filtering:
+total reads: 282679799
+total bases: 40866088764
+Q20 bases: 39259694128(96.0691%)
+Q30 bases: 36722535538(89.8607%)
+
+Read2 before filtering:
+total reads: 313465270
+total bases: 47333255770
+Q20 bases: 43740886904(92.4105%)
+Q30 bases: 40215115322(84.9617%)
+
+Read2 after filtering:
+total reads: 282679799
+total bases: 40844727907
+Q20 bases: 39168769257(95.8968%)
+Q30 bases: 36532722615(89.4429%)
+
+Filtering result:
+reads passed filter: 565359598
+reads failed due to low quality: 56453630
+reads failed due to too many N: 7128
+reads failed due to too short: 4751908
+reads failed due to low complexity: 358276
+reads with adapter trimmed: 117911171
+bases trimmed due to adapters: 3697697721
+
+Duplication rate: 3.22418%
+
+Insert size peak (evaluated by paired-end reads): 151
+
+JSON report: PE500.json
+HTML report: PE500.html
+
+fastp v0.19.6, time used: 3677 seconds
+```
+_MP5k Reads_
+```
+# MP5k MP reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+No adapter detected for read2
+
+Read1 before filtering:
+total reads: 72226739
+total bases: 8555203278
+Q20 bases: 8169036254(95.4862%)
+Q30 bases: 7611101112(88.9646%)
+
+Read1 after filtering:
+total reads: 69302647
+total bases: 8211891813
+Q20 bases: 7907272937(96.2905%)
+Q30 bases: 7396093669(90.0656%)
+
+Read2 before filtering:
+total reads: 72226739
+total bases: 8652737388
+Q20 bases: 8158905710(94.2928%)
+Q30 bases: 7528610405(87.0084%)
+
+Read2 after filtering:
+total reads: 69302647
+total bases: 8269710924
+Q20 bases: 7909224976(95.6409%)
+Q30 bases: 7337874335(88.7319%)
+
+Filtering result:
+reads passed filter: 138605294
+reads failed due to low quality: 5687612
+reads failed due to too many N: 1332
+reads failed due to too short: 134194
+reads failed due to low complexity: 25046
+reads with adapter trimmed: 88598
+bases trimmed due to adapters: 4520619
+
+Duplication rate: 79.9732%
+
+Insert size peak (evaluated by paired-end reads): 0
+
+JSON report: MP5k.json
+HTML report: MP5k.html
+
+fastp v0.19.6, time used: 1021 seconds
+
+# MP5k unk reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+No adapter detected for read2
+
+Read1 before filtering:
+total reads: 60434557
+total bases: 9103963533
+Q20 bases: 8383688714(92.0883%)
+Q30 bases: 7644980028(83.9742%)
+
+Read1 after filtering:
+total reads: 50514384
+total bases: 7593290562
+Q20 bases: 7236813461(95.3054%)
+Q30 bases: 6701035903(88.2494%)
+
+Read2 before filtering:
+total reads: 60434557
+total bases: 9104941968
+Q20 bases: 8033994501(88.2377%)
+Q30 bases: 7129774671(78.3066%)
+
+Read2 after filtering:
+total reads: 50514384
+total bases: 7590443800
+Q20 bases: 7076651939(93.2311%)
+Q30 bases: 6410485139(84.4547%)
+
+Filtering result:
+reads passed filter: 101028768
+reads failed due to low quality: 19123774
+reads failed due to too many N: 1782
+reads failed due to too short: 624196
+reads failed due to low complexity: 90594
+reads with adapter trimmed: 57920
+bases trimmed due to adapters: 3690502
+
+Duplication rate: 63.1683%
+
+Insert size peak (evaluated by paired-end reads): 0
+
+JSON report: MP5k_unk.json
+HTML report: MP5k_unk.html
+
+fastp v0.19.6, time used: 986 seconds
+
+# MP5k PE reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+No adapter detected for read2
+
+Read1 before filtering:
+total reads: 87847026
+total bases: 10620316674
+Q20 bases: 9987265240(94.0392%)
+Q30 bases: 9214906794(86.7668%)
+
+Read1 after filtering:
+total reads: 79605083
+total bases: 9409417239
+Q20 bases: 8997865087(95.6262%)
+Q30 bases: 8356854855(88.8137%)
+
+Read2 before filtering:
+total reads: 87847026
+total bases: 10742746146
+Q20 bases: 9980076411(92.9006%)
+Q30 bases: 9114573642(84.844%)
+
+Read2 after filtering:
+total reads: 79605083
+total bases: 9317609181
+Q20 bases: 8837411964(94.8463%)
+Q30 bases: 8123820342(87.1878%)
+
+Filtering result:
+reads passed filter: 159210166
+reads failed due to low quality: 12503538
+reads failed due to too many N: 1382
+reads failed due to too short: 3777180
+reads failed due to low complexity: 201786
+reads with adapter trimmed: 16886874
+bases trimmed due to adapters: 934315765
+
+Duplication rate: 58.4791%
+
+Insert size peak (evaluated by paired-end reads): 151
+
+JSON report: MP5k_pe.json
+HTML report: MP5k_pe.html
+
+fastp v0.19.6, time used: 1274 seconds
+
+# MP5k SE reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 17345347
+total bases: 1152136349
+Q20 bases: 1103155168(95.7487%)
+Q30 bases: 1030205878(89.417%)
+
+Read1 after filtering:
+total reads: 16861797
+total bases: 1124360058
+Q20 bases: 1085461753(96.5404%)
+Q30 bases: 1017086457(90.4591%)
+
+Filtering result:
+reads passed filter: 16861797
+reads failed due to low quality: 351338
+reads failed due to too many N: 55
+reads failed due to too short: 131753
+reads failed due to low complexity: 404
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 69.1975%
+
+JSON report: MP5k_se.json
+HTML report: MP5k_se.html
+
+fastp v0.19.6, time used: 100 seconds
+```
+_MP10k Reads_
+```
+# MP10k MP reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+No adapter detected for read2
+
+Read1 before filtering:
+total reads: 70317539
+total bases: 8252846187
+Q20 bases: 7888440507(95.5845%)
+Q30 bases: 7356591994(89.1401%)
+
+Read1 after filtering:
+total reads: 67429656
+total bases: 7916626307
+Q20 bases: 7629893125(96.3781%)
+Q30 bases: 7143698146(90.2366%)
+
+Read2 before filtering:
+total reads: 70317539
+total bases: 8353353046
+Q20 bases: 7861552795(94.1125%)
+Q30 bases: 7239715878(86.6684%)
+
+Read2 after filtering:
+total reads: 67429656
+total bases: 7975344398
+Q20 bases: 7616341234(95.4986%)
+Q30 bases: 7053148356(88.4369%)
+
+Filtering result:
+reads passed filter: 134859312
+reads failed due to low quality: 5602906
+reads failed due to too many N: 1352
+reads failed due to too short: 151746
+reads failed due to low complexity: 19762
+reads with adapter trimmed: 92364
+bases trimmed due to adapters: 4738508
+
+Duplication rate: 76.9895%
+
+Insert size peak (evaluated by paired-end reads): 0
+
+JSON report: MP10k.json
+HTML report: MP10k.html
+
+fastp v0.19.6, time used: 591 seconds
+
+# MP10k unk reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+No adapter detected for read2
+
+Read1 before filtering:
+total reads: 52979519
+total bases: 7981417831
+Q20 bases: 7345057582(92.027%)
+Q30 bases: 6701747698(83.9669%)
+
+Read1 after filtering:
+total reads: 40033628
+total bases: 6017186104
+Q20 bases: 5741092250(95.4116%)
+Q30 bases: 5322663420(88.4577%)
+
+Read2 before filtering:
+total reads: 52979519
+total bases: 7982376176
+Q20 bases: 6875842548(86.1378%)
+Q30 bases: 6039886071(75.6653%)
+
+Read2 after filtering:
+total reads: 40033628
+total bases: 6014358388
+Q20 bases: 5589766113(92.9404%)
+Q30 bases: 5047412465(83.9227%)
+
+Filtering result:
+reads passed filter: 80067256
+reads failed due to low quality: 22907050
+reads failed due to too many N: 1380
+reads failed due to too short: 2851036
+reads failed due to low complexity: 132316
+reads with adapter trimmed: 43496
+bases trimmed due to adapters: 2799867
+
+Duplication rate: 43.0167%
+
+Insert size peak (evaluated by paired-end reads): 0
+
+JSON report: MP10k_unk.json
+HTML report: MP10k_unk.html
+
+fastp v0.19.6, time used: 546 seconds
+
+# MP10k PE reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+No adapter detected for read2
+
+Read1 before filtering:
+total reads: 92595412
+total bases: 10339427498
+Q20 bases: 9734991913(94.1541%)
+Q30 bases: 8989871407(86.9475%)
+
+Read1 after filtering:
+total reads: 76806899
+total bases: 8989408271
+Q20 bases: 8602162029(95.6922%)
+Q30 bases: 7994251470(88.9297%)
+
+Read2 before filtering:
+total reads: 92595412
+total bases: 10456199676
+Q20 bases: 9696992802(92.7392%)
+Q30 bases: 8841628845(84.5587%)
+
+Read2 aftering filtering:
+total reads: 76806899
+total bases: 8846079072
+Q20 bases: 8373740525(94.6605%)
+Q30 bases: 7680890174(86.8282%)
+
+Filtering result:
+reads passed filter: 153613798
+reads failed due to low quality: 12159456
+reads failed due to too many N: 1128
+reads failed due to too short: 19079170
+reads failed due to low complexity: 337272
+reads with adapter trimmed: 22139306
+bases trimmed due to adapters: 1220839087
+
+Duplication rate: 45.2146%
+
+Insert size peak (evaluated by paired-end reads): 151
+
+JSON report: MP10k_pe.json
+HTML report: MP10k_pe.html
+
+fastp v0.19.6, time used: 776 seconds
+
+# MP10k SE reads
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 18119749
+total bases: 1257561974
+Q20 bases: 1205203768(95.8365%)
+Q30 bases: 1126084117(89.545%)
+
+Read1 after filtering:
+total reads: 17639144
+total bases: 1229482188
+Q20 bases: 1187332177(96.5717%)
+Q30 bases: 1112826453(90.5118%)
+
+Filtering result:
+reads passed filter: 17639144
+reads failed due to low quality: 354238
+reads failed due to too many N: 50
+reads failed due to too short: 125992
+reads failed due to low complexity: 325
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 73.236%
+
+JSON report: MP10k_se.json
+HTML report: MP10k_se.html
+
+fastp -i /work/frr6/SHAD/NXTRIM/MP10k.se.fastq.gz -o MP10k_se.trimmed.fq.gz --cut_front --cut_tail --cut_window_size=4 --cut_mean_quality=20 --qualified_quality_phred=20 --unqualified_percent_limit=30 --n_base_limit=5 --length_required=50 --low_complexity_filter --complexity_threshold=30 --overrepresentation_analysis --json=MP10k_se.json --html=MP10k_se.html --report_title=MP10k_se --thread=8 
+fastp v0.19.6, time used: 94 seconds
+```
 
 ## Step 3:  Process PE overlaps
 The software [pear v0.9.11](http://www.exelixis-lab.org/web/software/pear) was used to merge paired-end reads. The resulting longer reads are SE but can significantly improve genome assemblies. The publication can be found here:  
