@@ -925,7 +925,15 @@ Reads Out:            16838618
 Bases Out:          1174631851
 Total time: 	217.946 seconds.
 ```
-
+_MP5k MP reads_
+```
+Reads In:            138605294
+Clumps Formed:         9704475
+Duplicates Found:      3174154
+Reads Out:           135431140
+Bases Out:         16109764707
+Total time: 	1804.868 seconds.
+```
 
 
 
