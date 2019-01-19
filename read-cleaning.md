@@ -822,7 +822,111 @@ An example run is shown below.  **_NOTE:_** We have to process both PE and SE fi
 ./clump.sh SE MP10k_pe MP10k_pe_se.trimmed.pear.fq.gz empty
 ./clump.sh SE MP5k MP5k_se.trimmed.fq.gz empty
 ./clump.sh SE MP10k MP10k_se.trimmed.fq.gz empty
+
+# Process all the MP PE files
+./clump.sh PE MP5k /work/frr6/SHAD/FASTP/MP5k_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP5k_R.trimmed.fq.gz
+./clump.sh PE MP5k_unk /work/frr6/SHAD/FASTP/MP5k_unk_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP5k_unk_R.trimmed.fq.gz
+./clump.sh PE MP5k_pe /work/frr6/SHAD/PEAR/MP5k_pe_F.trimmed.pear.fq.gz /work/frr6/SHAD/PEAR/MP5k_pe_R.trimmed.pear.fq.gz
+./clump.sh PE MP10k /work/frr6/SHAD/FASTP/MP10k_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP10k_R.trimmed.fq.gz
+./clump.sh PE MP10k_unk /work/frr6/SHAD/FASTP/MP10k_unk_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP10k_unk_R.trimmed.fq.gz
+./clump.sh PE MP10k_pe /work/frr6/SHAD/PEAR/MP10k_pe_F.trimmed.pear.fq.gz /work/frr6/SHAD/PEAR/MP10k_pe_R.trimmed.pear.fq.gz
+
+# Process the PE PE files
+./clump.sh PE PE500 /work/frr6/SHAD/PEAR/PE500_F.trimmed.pear.fq.gz /work/frr6/SHAD/PEAR/PE500_R.trimmed.pear.fq.gz
 ```
+
+_clump.sh script_
+```bash
+#!/bin/bash -l
+# Read in file name stem
+n=$2
+read1=$3
+read2=$4
+
+if [ "$1" = 'PE' ]
+   then
+   echo "Running Clumpify PE mode..."
+   clumpify.sh \
+      -in=${read1} \
+      -in2=${read2} \
+      -out=${n}_F.trimmed.deduped.fq.gz \
+      -out2=${n}_R.trimmed.deduped.fq.gz \
+      dedupe=t \
+      containment=f \
+      optical=t \
+      dupedist=12000
+   echo "Finished Clumpify PE mode..."
+   elif [ "$1" = 'SE' ]
+   then
+   echo "Running Clumpify SE mode..."
+   clumpify.sh \
+      -in=${read1} \
+      -out=${n}_se.trimmed.deduped.fq.gz \
+      dedupe=t \
+      containment=f \
+      optical=t \
+      dupedist=12000
+   echo "Finished Clumpify SE mode..."
+   else
+   echo "Error:  Must state whether to RUn SE or PE mode!"
+fi
+```
+_Parameters Explained:_
+- -in/in2 :: input SE or forward and reverse read files, recognizes gzip
+- -out/out2 :: output SE or forward and reverse read files, recognizes gzip
+- dedupe=t :: remove duplicates
+- containment=f :: turn off containment
+- optical=t :: also remove optical duplicates (clusters too close together on flow cell)
+- dupedist=12000 :: cluster duplication radius on flow cell, set to 12000 for Novaseq (see manual)
+
+### Output Summary
+_PE500 SE Reads_
+```
+Reads In:            183983972
+Clumps Formed:        24043576
+Duplicates Found:      5314343
+Reads Out:           178669629
+Bases Out:         32580881321
+Total time: 	5376.857 seconds.
+```
+_MP5k PE SE Reads_
+```
+Reads In:             12346077
+Clumps Formed:         2776147
+Duplicates Found:       343249
+Reads Out:            12002828
+Bases Out:          1152843265
+Total time: 	231.658 seconds.
+```
+_MP10k PE SE Reads_
+```
+Reads In:             14781418
+Clumps Formed:         2104231
+Duplicates Found:       494149
+Reads Out:            14287269
+Bases Out:          1316546945
+Total time: 	224.572 seconds.
+```
+_MP5k SE Reads_
+```
+Reads In:             16861797
+Clumps Formed:         3281375
+Duplicates Found:       571332
+Reads Out:            16290465
+Bases Out:          1084833963
+Total time: 	218.710 seconds.
+```
+_MP10k SE Reads_
+```
+Reads In:             17639144
+Clumps Formed:         2279245
+Duplicates Found:       800526
+Reads Out:            16838618
+Bases Out:          1174631851
+Total time: 	217.946 seconds.
+```
+
+
 
 
 
