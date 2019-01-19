@@ -8,7 +8,8 @@ This section will start with the raw sequencing data and perform a series a clea
     - Program: [pear](http://www.exelixis-lab.org/web/software/pear)   
     - Alternatively, one can use [flash](https://ccb.jhu.edu/software/FLASH/)
 4.  Removing identical read pairs
-    - Program: [fastuniq](https://sourceforge.net/projects/fastuniq/)
+    - Program: [clumpify](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/clumpify-guide/) - part of the BBTools package
+    - Alternatively, one can use [fastuniq](https://sourceforge.net/projects/fastuniq/), but this is only for PE reads (not SE).
     
 ```    
 
@@ -798,6 +799,32 @@ Discarded reads file...............: MP10k_pe.trimmed.pear.discarded.fastq
 Unassembled forward reads file.....: MP10k_pe.trimmed.pear.unassembled.forward.fastq
 Unassembled reverse reads file.....: MP10k_pe.trimmed.pear.unassembled.reverse.fastq
 ```
+
+## Step 4:  Remove duplicates
+The software [clumpify v38.34](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/clumpify-guide/) from the [BBTools](https://jgi.doe.gov/data-and-tools/bbtools/) package was used to remove duplicated reads (both PE or SE). This process removes unnecessary reads that won't contribute ultimately to the assemblies and scaffolding. There is no associated publication.
+Alternatively, but not shown below, I have fun [fastuniq vx](https://sourceforge.net/projects/fastuniq/), but I like clumpify much better since it also works on SE reads and can remove optical duplicates as well..  You can see the script [fastuniq.sh](./Data/fastuniq.sh) if this is of interest.
+
+_Installation:_
+```bash
+# Downloaded bbtools
+wget https://sourceforge.net/projects/bbmap/files/BBMap_38.34.tar.gz
+tar -zxvf BBMap_38.34.tar.gz
+cd bbmap/
+ln -s /dscrhome/frr6/PROGRAMS/bbmap/clumpify.sh /dscrhome/frr6/bin/clumpify.sh
+```
+
+_Run clumpify_  
+An example run is shown below.  **_NOTE:_** We have to process both PE and SE files.  Please see the script [clump.sh](./Data/clump.sh) for more details on Job information.
+```bash
+# Process all the SE files
+./clump.sh SE PE500 PE500_se.trimmed.pear.fq.gz empty
+./clump.sh SE MP5k_pe MP5k_pe_se.trimmed.pear.fq.gz empty
+./clump.sh SE MP10k_pe MP10k_pe_se.trimmed.pear.fq.gz empty
+./clump.sh SE MP5k MP5k_se.trimmed.fq.gz empty
+./clump.sh SE MP10k MP10k_se.trimmed.fq.gz empty
+```
+
+
 
 
 
