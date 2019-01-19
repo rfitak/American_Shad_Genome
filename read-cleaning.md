@@ -664,15 +664,140 @@ _Parameters Explained:_
 - -k :: do not reverse-complement the reverse reads in the output file
 
 ### Output Summary
+_PE500 Reads_
+```
+ ____  _____    _    ____ 
+|  _ \| ____|  / \  |  _ \
+| |_) |  _|   / _ \ | |_) |
+|  __/| |___ / ___ \|  _ <
+|_|   |_____/_/   \_\_| \_\
 
-x  
-x  
-x  
-x  
-x  
-x  
-x  
-x  
+PEAR v0.9.11 [Nov 5, 2017]
+
+Citation - PEAR: a fast and accurate Illumina Paired-End reAd mergeR
+Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/btt593
+
+Forward reads file.................: /work/frr6/SHAD/FASTP/PE500_F.trimmed.fq.gz
+Reverse reads file.................: /work/frr6/SHAD/FASTP/PE500_R.trimmed.fq.gz
+PHRED..............................: 33
+Using empirical frequencies........: YES
+Statistical method.................: OES
+Maximum assembly length............: 999999
+Minimum assembly length............: 50
+p-value............................: 0.010000
+Quality score threshold (trimming).: 0
+Minimum read size after trimming...: 1
+Maximal ratio of uncalled bases....: 1.000000
+Minimum overlap....................: 10
+Scoring method.....................: Scaled score
+Threads............................: 16
+
+Allocating memory..................: 200,000,000 bytes
+Computing empirical frequencies....: DONE
+  A: 0.277289
+  C: 0.224540
+  G: 0.224961
+  T: 0.273210
+  13241024 uncalled bases
+
+Assembled reads ...................: 183,983,972 / 282,679,799 (65.086%)
+Discarded reads ...................: 0 / 282,679,799 (0.000%)
+Not assembled reads ...............: 98,695,827 / 282,679,799 (34.914%)
+Assembled reads file...............: PE500.trimmed.pear.assembled.fastq
+Discarded reads file...............: PE500.trimmed.pear.discarded.fastq
+Unassembled forward reads file.....: PE500.trimmed.pear.unassembled.forward.fastq
+Unassembled reverse reads file.....: PE500.trimmed.pear.unassembled.reverse.fastq
+```
+
+_MP5k_pe Reads_
+```
+ ____  _____    _    ____ 
+|  _ \| ____|  / \  |  _ \
+| |_) |  _|   / _ \ | |_) |
+|  __/| |___ / ___ \|  _ <
+|_|   |_____/_/   \_\_| \_\
+
+PEAR v0.9.11 [Nov 5, 2017]
+
+Citation - PEAR: a fast and accurate Illumina Paired-End reAd mergeR
+Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/btt593
+
+Forward reads file.................: /work/frr6/SHAD/FASTP/MP5k_pe_F.trimmed.fq.gz
+Reverse reads file.................: /work/frr6/SHAD/FASTP/MP5k_pe_R.trimmed.fq.gz
+PHRED..............................: 33
+Using empirical frequencies........: YES
+Statistical method.................: OES
+Maximum assembly length............: 999999
+Minimum assembly length............: 50
+p-value............................: 0.010000
+Quality score threshold (trimming).: 0
+Minimum read size after trimming...: 1
+Maximal ratio of uncalled bases....: 1.000000
+Minimum overlap....................: 10
+Scoring method.....................: Scaled score
+Threads............................: 16
+
+Allocating memory..................: 200,000,000 bytes
+Computing empirical frequencies....: DONE
+  A: 0.283777
+  C: 0.214987
+  G: 0.213886
+  T: 0.287350
+  3225996 uncalled bases
+
+Assembled reads ...................: 12,346,077 / 79,605,083 (15.509%)
+Discarded reads ...................: 0 / 79,605,083 (0.000%)
+Not assembled reads ...............: 67,259,006 / 79,605,083 (84.491%)
+Assembled reads file...............: MP5k_pe.trimmed.pear.assembled.fastq
+Discarded reads file...............: MP5k_pe.trimmed.pear.discarded.fastq
+Unassembled forward reads file.....: MP5k_pe.trimmed.pear.unassembled.forward.fastq
+Unassembled reverse reads file.....: MP5k_pe.trimmed.pear.unassembled.reverse.fastq
+```
+
+_MP10k_pe Reads_
+```
+ ____  _____    _    ____ 
+|  _ \| ____|  / \  |  _ \
+| |_) |  _|   / _ \ | |_) |
+|  __/| |___ / ___ \|  _ <
+|_|   |_____/_/   \_\_| \_\
+
+PEAR v0.9.11 [Nov 5, 2017]
+
+Citation - PEAR: a fast and accurate Illumina Paired-End reAd mergeR
+Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/btt593
+
+Forward reads file.................: /work/frr6/SHAD/FASTP/MP10k_pe_F.trimmed.fq.gz
+Reverse reads file.................: /work/frr6/SHAD/FASTP/MP10k_pe_R.trimmed.fq.gz
+PHRED..............................: 33
+Using empirical frequencies........: YES
+Statistical method.................: OES
+Maximum assembly length............: 999999
+Minimum assembly length............: 50
+p-value............................: 0.010000
+Quality score threshold (trimming).: 0
+Minimum read size after trimming...: 1
+Maximal ratio of uncalled bases....: 1.000000
+Minimum overlap....................: 10
+Scoring method.....................: Scaled score
+Threads............................: 16
+
+Allocating memory..................: 200,000,000 bytes
+Computing empirical frequencies....: DONE
+  A: 0.282901
+  C: 0.215660
+  G: 0.214794
+  T: 0.286645
+  3073285 uncalled bases
+
+Assembled reads ...................: 14,781,418 / 76,806,899 (19.245%)
+Discarded reads ...................: 0 / 76,806,899 (0.000%)
+Not assembled reads ...............: 62,025,481 / 76,806,899 (80.755%)
+Assembled reads file...............: MP10k_pe.trimmed.pear.assembled.fastq
+Discarded reads file...............: MP10k_pe.trimmed.pear.discarded.fastq
+Unassembled forward reads file.....: MP10k_pe.trimmed.pear.unassembled.forward.fastq
+Unassembled reverse reads file.....: MP10k_pe.trimmed.pear.unassembled.reverse.fastq
+```
 
 
 
