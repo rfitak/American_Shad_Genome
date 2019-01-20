@@ -10,14 +10,11 @@ This section will start with the raw sequencing data and perform a series a clea
 4.  Removing identical read pairs
     - Program: [clumpify](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/clumpify-guide/) - part of the BBTools package
     - Alternatively, one can use [fastuniq](https://sourceforge.net/projects/fastuniq/), but this is only for PE reads (not SE).
-    
-```    
-
-4.  Removing reads that map conclusively to the American Shad mitochondrial genome
+5.  Removing reads that map conclusively to the American Shad mitochondrial genome
     - A mitgenome is already available, so we want to minimize their presence
-5.  Kmer counting and Error-correcting the sequencing reads
+6.  Kmer counting and Error-correcting the sequencing reads
     - Program: [musket v1.1](http://musket.sourceforge.net/homepage.htm)
-```
+
 Sometimes the code below only shows the code for a single run, and runs may be repeated for different files. For reference to the amount of resources required, see the accompanying .sh scripts in the [Data](./Data) folder.
 
 ### Raw Data Summary:
@@ -824,15 +821,15 @@ An example run is shown below.  **_NOTE:_** We have to process both PE and SE fi
 ./clump.sh SE MP10k MP10k_se.trimmed.fq.gz empty
 
 # Process all the MP PE files
-./clump.sh PE MP5k /work/frr6/SHAD/FASTP/MP5k_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP5k_R.trimmed.fq.gz
-./clump.sh PE MP5k_unk /work/frr6/SHAD/FASTP/MP5k_unk_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP5k_unk_R.trimmed.fq.gz
-./clump.sh PE MP5k_pe /work/frr6/SHAD/PEAR/MP5k_pe_F.trimmed.pear.fq.gz /work/frr6/SHAD/PEAR/MP5k_pe_R.trimmed.pear.fq.gz
-./clump.sh PE MP10k /work/frr6/SHAD/FASTP/MP10k_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP10k_R.trimmed.fq.gz
-./clump.sh PE MP10k_unk /work/frr6/SHAD/FASTP/MP10k_unk_F.trimmed.fq.gz /work/frr6/SHAD/FASTP/MP10k_unk_R.trimmed.fq.gz
-./clump.sh PE MP10k_pe /work/frr6/SHAD/PEAR/MP10k_pe_F.trimmed.pear.fq.gz /work/frr6/SHAD/PEAR/MP10k_pe_R.trimmed.pear.fq.gz
+./clump.sh PE MP5k MP5k_F.trimmed.fq.gz MP5k_R.trimmed.fq.gz
+./clump.sh PE MP5k_unk MP5k_unk_F.trimmed.fq.gz MP5k_unk_R.trimmed.fq.gz
+./clump.sh PE MP5k_pe MP5k_pe_F.trimmed.pear.fq.gz MP5k_pe_R.trimmed.pear.fq.gz
+./clump.sh PE MP10k MP10k_F.trimmed.fq.gz MP10k_R.trimmed.fq.gz
+./clump.sh PE MP10k_unk MP10k_unk_F.trimmed.fq.gz MP10k_unk_R.trimmed.fq.gz
+./clump.sh PE MP10k_pe MP10k_pe_F.trimmed.pear.fq.gz MP10k_pe_R.trimmed.pear.fq.gz
 
 # Process the PE PE files
-./clump.sh PE PE500 /work/frr6/SHAD/PEAR/PE500_F.trimmed.pear.fq.gz /work/frr6/SHAD/PEAR/PE500_R.trimmed.pear.fq.gz
+./clump.sh PE PE500 PE500_F.trimmed.pear.fq.gz PE500_R.trimmed.pear.fq.gz
 ```
 
 _clump.sh script_
@@ -934,9 +931,26 @@ Reads Out:           135431140
 Bases Out:         16109764707
 Total time: 	1804.868 seconds.
 ```
+_MP5k Unk reads_
+```
 
+```
+_MP5k PE reads_
+```
 
+```
+_MP10k MP reads_
+```
 
+```
+_MP10k Unk reads_
+```
+
+```
+_MP10k PE reads_
+```
+
+```
 
 
 
