@@ -1002,6 +1002,33 @@ efetch \
 _Do the Mapping and Extract the Remaining Reads_  
 This uses [bowtie2 v2.3.0](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml), which has been enabled for mate-pair reads.  Only examples are shown below, please see [remove-mitoPE500.sh](./Data/remove-mitoPE500.sh) script for full code. `bowtie2` is published in:  
 Langmead B, Salzberg SL (2012) Fast gapped-read alignment with Bowtie 2. _Nature Methods_ 9(4):357-359. https://doi.org/10.1038/nmeth.1923
+
+```bash
+sbatch -J PE500 -o PE500.out -e PE500.err  mito.sh PE PE500 /work/frr6/SHAD/CLUMPIFY/PE500_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/PE500_R.trimmed.deduped.fq.gz
+
+sbatch -J PE500_se -o PE500_se.out -e PE500_se.err  mito.sh SE PE500_se /work/frr6/SHAD/CLUMPIFY/PE500_se.trimmed.deduped.fq.gz empty
+
+sbatch -J MP10k -o MP10k.out -e MP10k.err  mito.sh MP MP10k /work/frr6/SHAD/CLUMPIFY/MP10k_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/MP10k_R.trimmed.deduped.fq.gz
+
+sbatch -J MP10k_unk -o MP10k_unk.out -e MP10k_unk.err  mito.sh MP MP10k_unk /work/frr6/SHAD/CLUMPIFY/MP10k_unk_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/MP10k_unk_R.trimmed.deduped.fq.gz
+
+sbatch -J MP10k_pe -o MP10k_pe.out -e MP10k_pe.err  mito.sh PE MP10k_pe /work/frr6/SHAD/CLUMPIFY/MP10k_pe_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/MP10k_pe_R.trimmed.deduped.fq.gz
+
+sbatch -J MP10k_pe_se -o MP10k_pe_se.out -e MP10k_pe_se.err  mito.sh SE MP10k_pe_se /work/frr6/SHAD/CLUMPIFY/MP10k_pe_se.trimmed.deduped.fq.gz empty
+
+sbatch -J MP10k_se -o MP10k_se.out -e MP10k_se.err  mito.sh SE MP10k_se /work/frr6/SHAD/CLUMPIFY/MP10k_se.trimmed.deduped.fq.gz empty
+################
+sbatch -J MP5k -o MP5k.out -e MP5k.err  mito.sh MP MP5k /work/frr6/SHAD/CLUMPIFY/MP5k_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/MP5k_R.trimmed.deduped.fq.gz
+
+sbatch -J MP5k_unk -o MP5k_unk.out -e MP5k_unk.err  mito.sh MP MP5k_unk /work/frr6/SHAD/CLUMPIFY/MP5k_unk_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/MP5k_unk_R.trimmed.deduped.fq.gz
+
+sbatch -J MP5k_pe -o MP5k_pe.out -e MP5k_pe.err  mito.sh PE MP5k_pe /work/frr6/SHAD/CLUMPIFY/MP5k_pe_F.trimmed.deduped.fq.gz /work/frr6/SHAD/CLUMPIFY/MP5k_pe_R.trimmed.deduped.fq.gz
+
+sbatch -J MP5k_pe_se -o MP5k_pe_se.out -e MP5k_pe_se.err  mito.sh SE MP5k_pe_se /work/frr6/SHAD/CLUMPIFY/MP5k_pe_se.trimmed.deduped.fq.gz empty
+
+sbatch -J MP5k_se -o MP5k_se.out -e MP5k_se.err  mito.sh SE MP5k_se /work/frr6/SHAD/CLUMPIFY/MP5k_se.trimmed.deduped.fq.gz empty
+```
+
 ```bash
 # Build index of reference
 bowtie2-build Asap_mito.fasta Asap_mito
