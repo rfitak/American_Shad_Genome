@@ -933,23 +933,48 @@ Total time: 	1804.868 seconds.
 ```
 _MP5k Unk reads_
 ```
-
+Reads In:            101028768
+Clumps Formed:         9212697
+Duplicates Found:      1299408
+Reads Out:            99729360
+Bases Out:         14988178619
+Total time: 	5752.525 seconds.
 ```
 _MP5k PE reads_
 ```
-
+Reads In:            134518012
+Clumps Formed:        10440484
+Duplicates Found:      2831958
+Reads Out:           131686054
+Bases Out:         16051253878
+Total time: 	4844.656 seconds.
 ```
 _MP10k MP reads_
 ```
-
+Reads In:            134859312
+Clumps Formed:         6695378
+Duplicates Found:      4276242
+Reads Out:           130583070
+Bases Out:         15392514683
+Total time: 	3751.891 seconds.
 ```
 _MP10k Unk reads_
 ```
-
+Reads In:             80067256
+Clumps Formed:         5758195
+Duplicates Found:      1513806
+Reads Out:            78553450
+Bases Out:         11803770125
+Total time: 	4356.128 seconds.
 ```
 _MP10k PE reads_
 ```
-
+Reads In:            124050962
+Clumps Formed:         7288410
+Duplicates Found:      3684230
+Reads Out:           120366732
+Bases Out:         14662031651
+Total time: 	3916.013 seconds.
 ```
 
 
