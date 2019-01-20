@@ -12,6 +12,7 @@ This section will start with the raw sequencing data and perform a series a clea
     - Alternatively, one can use [fastuniq](https://sourceforge.net/projects/fastuniq/), but this is only for PE reads (not SE).
 5.  Removing reads that map conclusively to the American Shad mitochondrial genome
     - A mitgenome is already available, so we want to minimize their presence
+    - Program [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) for the mapping
 6.  Kmer counting and Error-correcting the sequencing reads
     - Program: [musket v1.1](http://musket.sourceforge.net/homepage.htm)
 
@@ -976,7 +977,80 @@ Reads Out:           120366732
 Bases Out:         14662031651
 Total time: 	3916.013 seconds.
 ```
+_PE500 PE Reads_
+```
+Reads In:            197391654
+Clumps Formed:        19586064
+Duplicates Found:      2238096
+Reads Out:           195153558
+Bases Out:         29388195556
+Total time: 	10547.929 seconds.
+```
 
+
+## Step 5:  Remove mitochondrial reads
+Since a mitogenome sequence for American shad already exists, it is useful to remove mitochondrial sequences from the dataset.  This reduces the overall computational burden and facilitates less cleanup of the final, assembled scaffolds.  It is possible this may filter some occassional nuclear-mitochondrial insertions, but we can accept that since the read pair information will help minimize this.  We use the `efetch` command from the [NCBI E-utilities toolset](https://www.ncbi.nlm.nih.gov/home/tools/) to download the mitogenome sequence.  The mitogenome was published in:  
+Bi YH and Chen XW (2011). Mitochondrial genome of the American shad _Alosa sapidissima_. Mitochondrial DNA 22(1-2):9-11. http://doi.org/10.3109/19401736.2010.551659.
+
+_Download the mitogenome_
+```bash
+efetch \
+   -db nucleotide \
+   -format fasta \
+   -id NC_014690.1 >> Asap_mito.fasta
+```
+_Do the Mapping and Extract the Remaining Reads_  
+This uses [bowtie2 v2.3.0](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml), which has been enabled for mate-pair reads.  Only examples are shown below, please see [remove-mitoPE500.sh](./Data/remove-mitoPE500.sh) script for full code. `bowtie2` is published in:  
+Langmead B, Salzberg SL (2012) Fast gapped-read alignment with Bowtie 2. _Nature Methods_ 9(4):357-359. https://doi.org/10.1038/nmeth.1923
+```bash
+# Build index of reference
+bowtie2-build Asap_mito.fasta Asap_mito
+
+# Run mapping script, remember the parameters differ for each of the three libraries.
+sbatch remove-mitoPE500.sh
+
+# Do Mapping for PE reads
+bowtie2 \
+   --phred33 \
+   -q \
+   --very-sensitive \
+   --minins 0 \
+   --maxins 500 \
+   --fr \
+   --threads 8 \
+   --reorder \
+   -x Asap_mito \
+   -1 PE500_F.trimmed.uniq.fq.gz \
+   -2 PE500_R.trimmed.uniq.fq.gz | \
+   samtools1.3 view -b -F 2 | \
+   samtools1.3 sort -T PE500.tmp -n -O bam | \
+   bedtools bamtofastq -i - -fq PE500_F.trimmed.uniq.noMito.fq -fq2 PE500_R.trimmed.uniq.noMito.fq
+
+# Compress the resulting reads
+gzip PE500_F.trimmed.uniq.noMito.fq
+gzip PE500_R.trimmed.uniq.noMito.fq
+```
+_Parameters Explained:_
+- --phred33 :: use phred33 offset for quality scores (standard for recent illumina data)
+- -q :: fastq format
+- --very-sensitive :: end-to-end alignment, -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+- --minins 0 :: minimum insert size
+- --maxins 500 :: maximum insert size
+- --fr :: paired-end orientation  *__SWITCH TO --rf FOR MATE-PAIR READS__*
+- --threads 8 :: use 8 cpus
+- --reorder :: sort the output same file
+- -x Asap_mito :: basename for the indexed reference to map against
+- -1/-2 :: forward and reverse read file names.  *__Recognizes gzip__*
+- Samtools view
+  - -b :: output bam format
+  - -F 2 :: exclude all properly paired and mapped reads
+- Samtools sort
+  - -n :: sort by read name for forward and reverse reads are next to each other
+  - -O bam :: output bam format
+  - -T PE500.tmp :: temporary file names for sorting bam files.  Set this or else they may overwrite each other.
+- Bedtools bamtofastq
+  - -i :: input bam file, uses standard input here
+  - -fq/-fq2 :: forward and reverse output fastq files.
 
 
 _Final Summary of Cleaning:_  
