@@ -11,7 +11,7 @@ This section will start with the raw sequencing data and perform a series a clea
     - Program: [clumpify](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/clumpify-guide/) - part of the BBTools package
     - Alternatively, one can use [fastuniq](https://sourceforge.net/projects/fastuniq/), but this is only for PE reads (not SE).
 5.  Removing reads that map conclusively to the American Shad mitochondrial genome
-    - A mitgenome is already available, so we want to minimize their presence
+    - A mitogenome is already available, so we want to minimize their presence
     - Program [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) for the mapping
 6.  Kmer counting and Error-correcting the sequencing reads
     - Program: [musket v1.1](http://musket.sourceforge.net/homepage.htm)
@@ -800,7 +800,7 @@ Unassembled reverse reads file.....: MP10k_pe.trimmed.pear.unassembled.reverse.f
 
 ## Step 4:  Remove duplicates
 The software [clumpify v38.34](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/clumpify-guide/) from the [BBTools](https://jgi.doe.gov/data-and-tools/bbtools/) package was used to remove duplicated reads (both PE or SE). This process removes unnecessary reads that won't contribute ultimately to the assemblies and scaffolding. There is no associated publication.
-Alternatively, but not shown below, I have fun [fastuniq vx](https://sourceforge.net/projects/fastuniq/), but I like clumpify much better since it also works on SE reads and can remove optical duplicates as well..  You can see the script [fastuniq.sh](./Data/fastuniq.sh) if this is of interest.
+Alternatively, but not shown below, I have run [fastuniq vx](https://sourceforge.net/projects/fastuniq/), but I like clumpify much better since it also works on SE reads and can remove optical duplicates as well..  You can see the script [fastuniq.sh](./Data/fastuniq.sh) if this is of interest.
 
 _Installation:_
 ```bash
