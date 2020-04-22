@@ -25,6 +25,7 @@ fastp \
    -n 5 \
    -q 20 \
    -u 30 \
+   --detect_adapter_for_pe \
    --length_required=70 \
    --low_complexity_filter \
    --complexity_threshold=20 \
